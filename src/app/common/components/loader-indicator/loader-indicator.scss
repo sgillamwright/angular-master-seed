@@ -1,0 +1,15 @@
+@import '../../variables';
+
+.loading-indicator {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+}
+
+.loading-indicator md-progress-linear[md-mode=indeterminate] .md-bar2 {
+    animation: indeterminate1 10s infinite linear;
+}
+.loading-indicator md-progress-linear[md-mode=indeterminate] .md-bar2 {
+    animation: indeterminate2 10s infinite linear;
+}

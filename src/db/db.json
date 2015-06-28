@@ -1,0 +1,34 @@
+{
+  "heros": [
+    {
+      "id": 1,
+      "name": "Thor",
+      "icon": "assets/Avengers-Thor-icon.png"
+    },
+    {
+      "id": 2,
+      "name": "Captain America",
+      "icon": "assets/Avengers-Captain-America-icon.png"
+    },
+    {
+      "id": 3,
+      "name": "Black Widow",
+      "icon": "assets/Avengers-Black-Widow-icon.png"
+    },
+    {
+      "id": 4,
+      "name": "Iron Man",
+      "icon": "assets/Avengers-Iron-Man-icon.png"
+    },
+    {
+      "id": 5,
+      "name": "The Hulk",
+      "icon": "assets/Avengers-Hulk-icon.png"
+    },
+    {
+      "id": 6,
+      "name": "Hawkeye",
+      "icon": "assets/Avengers-Hawkeye-icon.png"
+    }
+  ]
+}

@@ -1,0 +1,26 @@
+@import '../../common/variables';
+
+.app-view {
+    text-align: center;
+
+    h1 {
+        color: $baseFontColor;
+        text-transform: uppercase;
+    }
+
+    .red {
+        background: #ff8a80;
+    }
+
+    md-grid-list {
+        width: 75%;
+        margin: 1em auto;
+
+
+        figcaption {
+            text-align: center;
+            font-size: 1em;
+            width: 100%;
+        }
+    }
+}

@@ -1,0 +1,30 @@
+@import "common/common";
+
+.dev-tools {
+    padding: 10px;
+    background: black;
+    color: white;
+    margin: 0 0 0 0;
+
+    .watchers {
+        text-align: right;
+        width: 49%;
+        padding-right: 10px;
+        display: inline-block;
+    }
+
+    .digest-cycle {
+        text-align: left;
+        width: 49%;
+        padding-left: 10px;
+        display: inline-block;
+    }
+}
+
+.app {
+	height: 100%;
+	background-color: $baseBgColor;
+}
+
+
+

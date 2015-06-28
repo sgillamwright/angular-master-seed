@@ -1,0 +1,19 @@
+<div class="app-view" layout="column" layout-fill>
+
+    <md-whiteframe class="md-whiteframe-z2" layout layout-align="center center">
+        <h1>Angular Master Seed</h1>
+    </md-whiteframe>
+
+    <div layout="row" layout="row" layout-align="center center" ng-if="!vm.heros.length">
+        <md-button class="md-raised md-primary" ng-click="vm.loadData()">Primary</md-button>
+    </div>
+    <md-grid-list  ng-if="vm.heros.length" md-cols="4" md-cols-sm="1" md-cols-md="2" md-cols-lg="3" md-cols-gt-lg="4" md-row-height="1:1" md-gutter="12px" >
+        <md-grid-tile ng-repeat="hero in vm.heros" md-rowspan="1" md-colspan="1" class="red">
+        <img ng-src="{{::hero.icon}}"/>
+          <md-grid-tile-footer>
+            {{::hero.name}}
+          </md-grid-tile-footer>
+        </md-grid-tile>
+    </md-grid-list>
+
+</div>
