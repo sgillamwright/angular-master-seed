@@ -1,4 +1,4 @@
-export default function AppConfig($locationProvider, $urlRouterProvider, $stateProvider, logExProvider, $compileProvider, RestangularProvider) {
+export default function AppConfig($locationProvider, $urlRouterProvider, $stateProvider, logExProvider, $compileProvider, RestangularProvider, $mdIconProvider) {
 
     //utility
     let isDevEnvironment = false;
@@ -38,6 +38,9 @@ export default function AppConfig($locationProvider, $urlRouterProvider, $stateP
         RestangularProvider.setBaseUrl('/api/');
     }
 
+    // Configure URLs for icons specified by [set:]id.
+    $mdIconProvider.defaultFontSet('Material Icons');
+
     //configure base app route
     $urlRouterProvider.otherwise('/');
 
@@ -50,4 +53,4 @@ export default function AppConfig($locationProvider, $urlRouterProvider, $stateP
 
 };
 
-AppConfig.$inject = ['$locationProvider', '$urlRouterProvider','$stateProvider', 'logExProvider', '$compileProvider', 'RestangularProvider'];
+AppConfig.$inject = ['$locationProvider', '$urlRouterProvider','$stateProvider', 'logExProvider', '$compileProvider', 'RestangularProvider', '$mdIconProvider'];

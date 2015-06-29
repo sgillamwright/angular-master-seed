@@ -36,6 +36,7 @@ Any 3rd party code should be managed in the vendor namespace.
 * NgStats - Angular Performance Monitor
 * LogUnobtrusiveExtension - Add additional features to Angular $log service.
 * Lodash - Utility Toolset
+* Material Design Icon Webfont - https://www.google.com/design/icons/
 
 ---
 #Tooling
