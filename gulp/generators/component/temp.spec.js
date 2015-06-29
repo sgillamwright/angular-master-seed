@@ -1,5 +1,4 @@
 import app from '../../app';
-import <%= upperCaseName %>Module from './<%= name %>';
 import <%= upperCaseName %>Controller from './<%= name %>.controller';
 import <%= upperCaseName %>Component from './<%= name %>.component';
 import <%= upperCaseName %>Template from './<%= name %>.html';
@@ -17,20 +16,11 @@ describe('Component::<%= upperCaseName %>', ()=>{
 
     //controller tests
     describe('Controller', ()=>{
-        //di example
+        //di checks
         it('should have a $log service', ()=>{
             expect($controller['$log']).toBeDefined();
         });
 
-    });
-
-    //Template Tests
-    describe('Template', ()=>{
-        // use Regexes to test that you are using the right bindings {{  }}
-        // it('should contain a list of devices', ()=>{
-        //     let deviceListBinding = /\s?vm\.DataSvc\.devices\.length\s?/g
-        //     expect(<%= upperCaseName %>Template).toMatch(deviceListBinding);
-        // });
     });
 
     //Component / Directive Definition Object Tests

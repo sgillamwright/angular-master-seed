@@ -1,5 +1,3 @@
-import app from '../../../app';
-import PerformanceBarModule from './performance-bar';
 import PerformanceBarController from './performance-bar.controller';
 import PerformanceBarComponent from './performance-bar.component';
 import PerformanceBarTemplate from './performance-bar.html';
@@ -19,14 +17,6 @@ describe('Component::PerformanceBar', ()=>{
             expect($controller['$log']).toBeDefined();
         });
 
-    });
-
-    describe('Template', ()=>{
-        // use Regexes to test that you are using the right bindings {{  }}
-        // it('should contain a list of devices', ()=>{
-        //     let deviceListBinding = /\s?vm\.DataSvc\.devices\.length\s?/g
-        //     expect(PerformanceBarTemplate).toMatch(deviceListBinding);
-        // });
     });
 
     describe('Component', ()=>{

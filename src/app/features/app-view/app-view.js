@@ -1,4 +1,5 @@
 import angular from 'angular';
+
 import AppViewComponent from './app-view.component';
 import Styles from './app-view.scss';
 

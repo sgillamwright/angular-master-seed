@@ -1,40 +1,25 @@
-import AppModule from './app';
 import AppController from './app.controller';
 import AppComponent from './app.component';
 import AppTemplate from './app.html';
 
 describe('Component::App', ()=>{
-    let $controller, AngularServices, AppServices;
+    let $controller;
 
     beforeEach(window.module('app'));
 
     beforeEach(inject((_AngularServices_, _AppServices_)=>{
-        AngularServices = _AngularServices_;
-        AppServices = _AppServices_;
-        $controller = (AngularServices, AppServices)=>{
-            return new AppController(AngularServices, AppServices);
-        };
+        $controller = new AppController(_AngularServices_, _AppServices_);
     }));
 
     describe('Controller', ()=>{
         it('should have access to AngularServices', ()=>{
-            let controller = $controller(AngularServices, AppServices);
-            expect(controller['AngularServices']).toBeDefined();
+            expect($controller['AngularServices']).toBeDefined();
         });
 
         it('should have access to AppServices', ()=>{
-            let controller = $controller(AngularServices, AppServices);
-            expect(controller['AppServices']).toBeDefined();
+            expect($controller['AppServices']).toBeDefined();
         });
 
-    });
-
-    describe('Template', ()=>{
-        // use Regexes to test that you are using the right bindings {{  }}
-        it('should control ng stats performance bar', ()=>{
-            let deviceListBinding = /\s?vm\.DevTools\.performanceBarIsVisible\s?/g
-            expect(AppTemplate).toMatch(deviceListBinding);
-        });
     });
 
     describe('Component', ()=>{

@@ -1,5 +1,4 @@
 import app from '../../../app';
-import LoaderIndicatorModule from './loader-indicator';
 import LoaderIndicatorController from './loader-indicator.controller';
 import LoaderIndicatorComponent from './loader-indicator.component';
 import LoaderIndicatorTemplate from './loader-indicator.html';
@@ -23,14 +22,6 @@ describe('Component::LoaderIndicator', ()=>{
             expect($controller['$rootScope']).toBeDefined();
         });
 
-    });
-
-    describe('Template', ()=>{
-        // use Regexes to test that you are using the right bindings {{  }}
-        // it('should contain a list of devices', ()=>{
-        //     let deviceListBinding = /\s?vm\.DataSvc\.devices\.length\s?/g
-        //     expect(LoaderIndicatorTemplate).toMatch(deviceListBinding);
-        // });
     });
 
     describe('Component', ()=>{

@@ -7,7 +7,7 @@ export class APIService {
 
     /**
      * @param {$log} $log - Angular logging Service.
-     * @param {$location} $location - Angular Location Service.
+     * @param {Restangular} Restangular - Restangular Service.
      */
     constructor($log, Restangular) {
         /**
@@ -16,7 +16,8 @@ export class APIService {
         this.$log = $log.getInstance('API', true);
         this.$log.debug('constructor');
 
-        this.heros = Restangular.all('heros');
+        this.Restangular = Restangular;
+        this.heros = this.Restangular.all('heros');
     }
 
     /**
