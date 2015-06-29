@@ -13,7 +13,7 @@ describe('Component::App', ()=>{
 
     describe('Controller', ()=>{
         it('should have access to AngularServices', ()=>{
-            expect($controller['AngularServicess']).toBeDefined();
+            expect($controller['AngularServices']).toBeDefined();
         });
 
         it('should have access to AppServices', ()=>{

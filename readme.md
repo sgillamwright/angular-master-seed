@@ -58,6 +58,9 @@ Any 3rd party code should be managed in the vendor namespace.
 * SassDoc - Generate documents from application styles.
 * ESDoc - Generate documents from javascript code.
 
+##Pre-Commit
+I use the pre-commit node module to run the eslint and karma gulp tasks to ensure code is checked and functional before commited to a repo.
+
 ---
 #Gulp Tasks
 * Gulp tasks are organized inside the /gulp/tasks folder by function.
