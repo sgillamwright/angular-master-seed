@@ -1,58 +1,53 @@
-import app from '../../app';
-import <%= upperCaseName %>Module from './<%= name %>';
-import <%= upperCaseName %>Controller from './<%= name %>.controller';
-import <%= upperCaseName %>Component from './<%= name %>.component';
-import <%= upperCaseName %>Template from './<%= name %>.html';
+import app from '../../../app';
+import LoaderIndicatorModule from './loader-indicator';
+import LoaderIndicatorController from './loader-indicator.controller';
+import LoaderIndicatorComponent from './loader-indicator.component';
+import LoaderIndicatorTemplate from './loader-indicator.html';
 
-describe('Component::<%= upperCaseName %>', ()=>{
+describe('Component::LoaderIndicator', ()=>{
     let $controller;
 
-    //load up the app
     beforeEach(window.module('app'));
 
-    //test dependency injection
-    beforeEach(inject((_$log_)=>{
-        $controller = new LoaderIndicatorController(_$log_);
+    beforeEach(inject((_$log_, _$rootScope_)=>{
+        $controller = new LoaderIndicatorController(_$log_, _$rootScope_);
     }));
 
-    //controller tests
     describe('Controller', ()=>{
         //di example
         it('should have a $log service', ()=>{
             expect($controller['$log']).toBeDefined();
         });
 
+        it('should have a $rootScope service', ()=>{
+            expect($controller['$rootScope']).toBeDefined();
+        });
+
     });
 
-    //Template Tests
     describe('Template', ()=>{
         // use Regexes to test that you are using the right bindings {{  }}
         // it('should contain a list of devices', ()=>{
         //     let deviceListBinding = /\s?vm\.DataSvc\.devices\.length\s?/g
-        //     expect(<%= upperCaseName %>Template).toMatch(deviceListBinding);
+        //     expect(LoaderIndicatorTemplate).toMatch(deviceListBinding);
         // });
     });
 
-    //Component / Directive Definition Object Tests
     describe('Component', ()=>{
-        let component = <%= upperCaseName %>Component();
+        let component = LoaderIndicatorComponent();
 
-        //component controller is rigged properly
         it('should use the correct controller', ()=>{
-            expect(component.controller).toEqual(<%= upperCaseName %>Controller);
+            expect(component.controller).toEqual(LoaderIndicatorController);
         });
 
-        //component template is rigged properly
         it('should use the correct template',()=>{
-            expect(component.template).toEqual(<%= upperCaseName %>Template);
+            expect(component.template).toEqual(LoaderIndicatorTemplate);
         });
 
-        //component is set to be an element tag component
         it('should restrict to element', ()=>{
             expect(component.restrict).toContain('E');
         });
 
-        //component uses controllerAs = 'vm'
         it('should use controllerAs "vm"', ()=>{
             //by using controllerAs, the controllers’ scope is bound
             //to the controllers’ this object, basically namespaces scopes
@@ -60,7 +55,6 @@ describe('Component::<%= upperCaseName %>', ()=>{
             expect(component.controllerAs).toEqual('vm');
         });
 
-        //component uses bindToController to avoid needing to use $scope
         it('should use bindToController when isolated scope exists', ()=>{
             //When bindToController is set to true in a directive
             //with isolated scope that uses controllerAs,

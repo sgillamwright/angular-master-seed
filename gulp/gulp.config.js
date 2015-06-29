@@ -52,16 +52,13 @@ module.exports =
     },
     generators: {
         component: {
-            templates: './generators/component/**/*.**'
-        },
-        view: {
-            templates: './generators/view/**/*.**'
+            templates: './gulp/generators/component/**/*.**'
         },
         service: {
-            templates: './generators/service/**/*.**'
+            templates: './gulp/generators/service/**/*.**'
         },
         filter: {
-            templates: './generators/filter/**/*.**'
+            templates: './gulp/generators/filter/**/*.**'
         }
     }
 };

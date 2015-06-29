@@ -1,16 +1,7 @@
 <div class="app">
 
-    <div class="dev-tools" ng-if="vm.DevTools.performanceBarIsVisible">
-        <div layout="row" layout="row" layout-align="center center" angular-stats watch-count=".watch-count" digest-length=".digest-length"
-            on-watch-count-update="onWatchCountUpdate(watchCount)"
-            on-digest-length-update="onDigestLengthUpdate(digestLength)">
-            <div class="watchers">
-              Watches: <span class="watch-count"></span>
-            </div>
-            <div class="digest-cycle">
-            Digest: <span class="digest-length"></span>ms
-            </div>
-        </div>
+    <div ng-if="vm.DevTools.performanceBarIsVisible">
+        <performance-bar></performance-bar>
     </div>
 
     <loader-indicator></loader-indicator>

@@ -6,7 +6,7 @@ describe('Service::<%= upperCaseName %>', () => {
     //load up the app
     beforeEach(window.module('app'));
 
-    //dependency injection
+    //test dependency injection
     beforeEach(inject((_<%= upperCaseName %>_) => {
         <%= upperCaseName %> = _<%= upperCaseName %>_;
     }));
