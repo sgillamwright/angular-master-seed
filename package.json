@@ -49,6 +49,7 @@
     "node-sass": "^3.2.0",
     "phantomjs": "^1.9.17",
     "phantomjs-polyfill": "0.0.1",
+    "pre-commit": "^1.0.10",
     "raw-loader": "^0.5.1",
     "require-dir": "^0.3.0",
     "restangular": "^1.5.1",
@@ -62,8 +63,18 @@
     "yargs": "^3.9.0"
   },
   "scripts": {
-    "test": "karma start"
+    "test": "gulp karma"
   },
+    "scripts": {
+        "test": "echo \"Error: I SHOULD FAIL LOLOLOLOLOL \" && exit 1",
+        "foo": "echo \"fooo\" && exit 0",
+        "bar": "echo \"bar\" && exit 0"
+    },
+    "pre-commit": [
+        "foo",
+        "bar",
+        "test"
+    ],
   "keywords": [
     "angular",
     "webpack",
