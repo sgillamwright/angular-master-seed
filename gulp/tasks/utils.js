@@ -4,6 +4,7 @@ var jsonServer = require('json-server');
 var del = require('del');
 var exec = require('child_process').exec;
 var exit = require('gulp-exit');
+var eslint = require('gulp-eslint');
 
 //clear terminal and timestamp output for easier scanning
 gulp.task('timestamp', function (cb) {
@@ -31,4 +32,18 @@ gulp.task('mockdb', function() {
     server.use(jsonServer.defaults); // logger, static and cors middlewares
     server.use('/api', router); // Mount router on '/api'
     server.listen(3000);  // api runs on this port
+});
+
+//eslint pre-commit task
+gulp.task('eslint', function () {
+    return gulp.src(config.files.app.js)
+        // eslint() attaches the lint output to the eslint property
+        // of the file object so it can be used by other modules.
+        .pipe(eslint())
+        // eslint.format() outputs the lint results to the console.
+        // Alternatively use eslint.formatEach() (see Docs).
+        .pipe(eslint.format())
+        // To have the process exit with an error code (1) on
+        // lint error, return the stream and pipe to failOnError last.
+        .pipe(eslint.failOnError());
 });

@@ -29,6 +29,7 @@
     "fs-walk": "0.0.1",
     "gulp": "^3.8.11",
     "gulp-angular-protractor": "0.0.2",
+    "gulp-eslint": "^0.14.0",
     "gulp-exit": "0.0.2",
     "gulp-karma": "0.0.4",
     "gulp-rename": "^1.2.2",
@@ -63,18 +64,14 @@
     "yargs": "^3.9.0"
   },
   "scripts": {
-    "test": "gulp karma"
+    "start": "gulp",
+    "test": "gulp karma",
+    "lint": "gulp eslint"
   },
-    "scripts": {
-        "test": "echo \"Error: I SHOULD FAIL LOLOLOLOLOL \" && exit 1",
-        "foo": "echo \"fooo\" && exit 0",
-        "bar": "echo \"bar\" && exit 0"
-    },
-    "pre-commit": [
-        "foo",
-        "bar",
-        "test"
-    ],
+  "pre-commit": [
+    "lint",
+    "test"
+  ],
   "keywords": [
     "angular",
     "webpack",
