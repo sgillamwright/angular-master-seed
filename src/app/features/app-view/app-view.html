@@ -9,7 +9,7 @@
     </div>
 
     <md-grid-list ng-if="vm.heros.length" md-cols="4" md-cols-sm="1" md-cols-md="2" md-cols-lg="3" md-cols-gt-lg="4" md-row-height="1:1" md-gutter="12px">
-        <md-grid-tile ng-repeat="hero in vm.heros" md-rowspan="1" md-colspan="1" class="red">
+        <md-grid-tile ng-repeat="hero in vm.heros" md-rowspan="1" md-colspan="1" class="red hero-tile">
         <img ng-src="{{::hero.icon}}"/>
           <md-grid-tile-footer>
             {{::hero.name}}
