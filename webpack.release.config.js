@@ -15,11 +15,12 @@ module.exports = {
             { test: /\.html$/, loader: 'raw' },
             { test: /\.css$/, loader: ExtractTextPlugin.extract("style-loader", "css-loader")
             },
-            { test: /\.scss$/, loader: ExtractTextPlugin.extract("style-loader", "css-loader!sass-loader?outputStyle=compressed")
+            { test: /\.scss$/, loader: ExtractTextPlugin.extract("style-loader", "css-loader!autoprefixer-loader!sass-loader?outputStyle=compressed")
             }
         ]
     },
     plugins: [
+        new webpack.optimize.OccurenceOrderPlugin(true),
         new webpack.optimize.DedupePlugin(),
         new ExtractTextPlugin("../dist/app.min.css"),
         new webpack.optimize.UglifyJsPlugin({

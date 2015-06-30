@@ -6,7 +6,7 @@
 
 ---
 #Overview
-This project is a **very** opinitionated Angular seed project full of Angular 1.x, and tooling best practices. The code is written using Javascript 2015 (ES6) and transpiled and built using Babel & Webpack. To assist with making the app flexible and transitional down the road I have adopted a component based strategy similiar to that proposed for Angular 2.0.  The component strategy consists of the app being broken down into as small components as possible to maximize reusability, keep logic simple and testing as uncomplicated as possible.  These components operate as little mini apps in their own right and contain their own CSS, JS, Templates and tests together for clarity.  This approach is inline with the Web Component spec and just makes sense to build a flexible and future friendly application.
+This project is a **very** opinitionated Angular seed project full of my preferred Angular 1.x, and tooling best practices based on my experience using Angular 1.x on large apps. The code is written using ES2015 and transpiled and built using Babel & Webpack. To assist with making the app flexible and transitional down the road I have adopted a component based strategy similiar to that proposed for Angular 2.0.  The component strategy consists of the app being broken down into as small components as possible to maximize reusability, keep logic simple and testing as uncomplicated as possible.  These components operate as little mini apps in their own right and contain their own CSS, JS, Templates and tests together for clarity.  This approach is inline with the Web Component spec and just makes sense to build a flexible and future friendly application.
 
 ###Approach
 * The app and its views are built by building templates using components with light view controllers that orchastrate communication between the components & business Logic in services.
@@ -26,7 +26,7 @@ Any 3rd party code should be managed in the vendor namespace.
 
 ###Code Stack
 * AngularJS
-* Javascript 2015 (ES6)
+* ES2015
 * Sass
 
 ###Bundled Vendor Modules
@@ -43,17 +43,18 @@ Any 3rd party code should be managed in the vendor namespace.
 
 ###Build Tools
 * Gulp - Build System Task Runner
-* Webpack - Code Bundler
-* Babel - Javascript 2015 Transpiler
+* Webpack - Code Bundler - (babel transpiling, eslint, sass compile & autoprefixer)
+* Babel - ES2015 Transpiler
 * BrowserSync - Live reload and synchronised device testing.
 * Json Server - Allows for development without finalized backend systems & excellent support for running tests without affecting real databases.
-* ESLint - Javascript 2015 Linter to assist with code quality
+* ESLint - ES2015 Linter to assist with code quality
 
 ###Testing Tools
-* Karma - Test Runner
-* Jasmine - Unit & Integration Testing
-* Protractor - End to End Testing
-* Istanbul - Code Coverage Reporter
+* [Karma](http://karma-runner.github.io/) - Test Runner
+* [Jasmine](http://jasmine.github.io/2.3/introduction.html) - Unit & Integration Testing
+* [Jasmine Matchers](https://github.com/JamieMason/Jasmine-Matchers) - Additional Matchers for Jasmine
+* [Protractor](https://angular.github.io/protractor/#/) - End to End Testing
+* [Istanbul](https://gotwarlost.github.io/istanbul/) - Code Coverage Reporter
 
 ##Documentation Tools
 * SassDoc - Generate documents from application styles.
@@ -70,13 +71,13 @@ I use the pre-commit node module to run the eslint and karma gulp tasks to ensur
 ####Build Tasks
 * gulp - start local development workflow
 * gulp release-dryrun - bundle app for release and run all its tests against the app running with a mocked db of test data.
-* gulp release - bundle app for release (minification & tests
+* gulp release - bundle app for release (minification & tests)
 
 ####Testing Tasks
-* gulp karma - Single run of Jasmine integration & Unit tests. Also generates code coverage info in /.dist/tests.
-* gulp tdd - Run 'karma' task with watchers so its rerun after every code change.
-* gulp protractor - Single run of Protractor E2E tests against the running local development code bundle.
-* gulp protractor-release - Single run of E2E against a local instance of a release code bundle.
+* gulp test - Single run of Jasmine integration & Unit tests with Karma. Also generates code coverage info in /.dist/tests.
+* gulp tdd - Run 'test' task with watchers so its rerun after every code change.
+* gulp e2e - Single run of Protractor E2E tests against the running local development code bundle.
+* gulp e2e-release - Single run of E2E against a local instance of a release code bundle.
 
 ###Documentation Tasks
 * gulp esdoc - Generates esdoc website into the ./dist/docs folder.
@@ -91,15 +92,21 @@ To assist with development I have created a series of gulp tasks to generate the
 * TODO - Fill out this section
 
 ---
-#Other Tooling Suggestions
-* You should install a Javascript 2015 linter into your editor - http://eslint.org/
+#Other Tooling & Resource Suggestions
+* [http://eslint.org/](http://eslint.org/) - Run an ES2015 linter in your editor of choice 
+* [Angular Testing Patterns](https://github.com/daniellmb/angular-test-patterns) - A High-Quality Guide for Testing Angular 1.x Applications
 * DocBlockr - Simplify JSDOC Comments
-* Emmet - HTML & CSS shortcuts
+* Emmet - HTML & CSS Shortcuts
 * Git Gutter - See local changes of files easily
-* Elementor - Excellent tool for assisting with writing Angular End to End Tests.
+* Elementor - Excellent tool for assisting with writing Protractor E2E tests.
+
+---
+#Inspiration & Thanks
+The [NG6-Starter Repo](https://github.com/angular-class/NG6-starter) is where I originally got my inspiration for the component style approach of this repo.  If your looking for a much lighter build tool setup I highly recommend you take a look.
 
 ---
 #TODO
-* Investigate using Javascript 2015 to write gulpfile + tasks.
-* Keeping checking in on JSDOC project to see how Javascript 2015 support is.  Would prefer to be using this over ESDOC as its more robust.
-* Complete Generators Code
+* Investigate using ES2015 to write gulpfile + tasks.
+* Keeping checking in on JSDOC project to see how ES2015 support is.  Would prefer to be using this over ESDOC as its more robust.
+* Complete Generators Code for common and features.
+* Add purify css task to audit css.

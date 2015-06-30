@@ -51,10 +51,10 @@ module.exports = function(config) {
         stats: {
           colors: true
         },
-        quiet: false
+        quiet: true
     },
     webpackServer: {
-      noInfo: false //please don't spam the console when running in karma!
+      noInfo: true //please don't spam the console when running in karma!
     },
 
 

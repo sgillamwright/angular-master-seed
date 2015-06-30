@@ -12,13 +12,14 @@ module.exports = {
 		loaders: [
 			{ test: /\.js$/, exclude: [/node_modules/], loaders: ['babel'] },
             { test: /\.html$/, loader: 'raw' },
-            { test: /\.css$/, loader: ExtractTextPlugin.extract("style-loader", "css-loader")
+            { test: /\.css$/, loader: ExtractTextPlugin.extract("style-loader", "css-loader!autoprefixer-loader"),
             },
-            { test: /\.scss$/, loader: ExtractTextPlugin.extract("style-loader", "css-loader!sass-loader?outputStyle=expanded")
+            { test: /\.scss$/, loader: ExtractTextPlugin.extract("style-loader", "css-loader!autoprefixer-loader!sass-loader?outputStyle=expanded")
             }
 		]
 	},
     plugins: [
+        new webpack.optimize.OccurenceOrderPlugin(true),
         new webpack.optimize.DedupePlugin(),
         new ExtractTextPlugin("../dist/app.css")
     ]

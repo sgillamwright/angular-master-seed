@@ -5,7 +5,7 @@ var karma = require('gulp-karma');
 var runSequence = require('run-sequence');
 
 //setup and run protractor + selenium server
-gulp.task('protractor', function() {
+gulp.task('e2e', function() {
     return gulp.src(config.files.tests.e2e)
         .pipe(protractor({
             'configFile': config.files.tests.configs.protractor,
@@ -16,13 +16,13 @@ gulp.task('protractor', function() {
 });
 
 //build app and run the protractor tests against a release bundle
-gulp.task('protractor-release', function(done) {
-    runSequence('clean', 'fresh-build', 'bundle-release', 'copy-html-release', 'copy-assets', 'mockdb', 'browser-sync', 'protractor', 'stop', done);
+gulp.task('e2e-release', function(done) {
+    runSequence('clean', 'fresh-build', 'bundle-release', 'copy-html-release', 'copy-assets', 'mockdb', 'browser-sync', 'e2e', 'stop', done);
 });
 
 
 //perform a single run of unit tests
-gulp.task('karma', function() {
+gulp.task('test', function() {
     return gulp.src([config.files.tests.bindPolyfill, config.files.tests.bundle])
         .pipe(karma({
           configFile: config.files.tests.configs.karma,
