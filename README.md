@@ -79,7 +79,7 @@ Features by their nature are more complex and may contain any number of feature 
 * [ESDoc](https://esdoc.org/) - Generate documents from javascript code.
 
 ####GIT Pre-Commit Check
-I use [pre-commit](https://github.com/observing/pre-commit) to run the eslint and test gulp tasks before each commit is processed.  The commit fails if any issues arise from either task. This helps prevent breaking code from being added to the repo.
+I use [pre-commit](https://github.com/observing/pre-commit) to run the eslint and test gulp tasks before each commit is processed.  The commit fails if any issues arise from either task. This helps prevent breaking code from being added to the repo.  You can skip this check by included '--no-verify' in your commit command.
 
 ---
 ##Gulp Tasks
