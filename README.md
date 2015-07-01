@@ -93,7 +93,7 @@ To assist with development I have created a series of gulp tasks to generate the
 
 ---
 #Other Tooling & Resource Suggestions
-* [http://eslint.org/](http://eslint.org/) - Run an ES2015 linter in your editor of choice 
+* [http://eslint.org/](http://eslint.org/) - Run an ES2015 linter in your editor of choice
 * [Angular Testing Patterns](https://github.com/daniellmb/angular-test-patterns) - A High-Quality Guide for Testing Angular 1.x Applications
 * DocBlockr - Simplify JSDOC Comments
 * Emmet - HTML & CSS Shortcuts

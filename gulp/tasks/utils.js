@@ -5,6 +5,7 @@ var del = require('del');
 var exec = require('child_process').exec;
 var exit = require('gulp-exit');
 var eslint = require('gulp-eslint');
+var csslint = require('gulp-csslint');
 
 //clear terminal and timestamp output for easier scanning
 gulp.task('timestamp', function (cb) {
@@ -46,4 +47,10 @@ gulp.task('eslint', function () {
         // To have the process exit with an error code (1) on
         // lint error, return the stream and pipe to failOnError last.
         .pipe(eslint.failOnError());
+});
+
+gulp.task('csslint', function() {
+  gulp.src('./dist/app.css')
+    .pipe(csslint())
+    .pipe(csslint.reporter());
 });

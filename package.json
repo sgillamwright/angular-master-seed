@@ -39,6 +39,7 @@
     "fs-walk": "0.0.1",
     "gulp": "^3.8.11",
     "gulp-angular-protractor": "0.0.2",
+    "gulp-csslint": "^0.1.5",
     "gulp-eslint": "^0.14.0",
     "gulp-exit": "0.0.2",
     "gulp-karma": "0.0.4",

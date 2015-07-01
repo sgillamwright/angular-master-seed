@@ -39,10 +39,10 @@ describe('Service::API', ()=>{
 
         //example of working with ajax data
         it('should make $http call', function () {
-            var data;
+            let data;
 
             //provide mock data for mocked http response
-            var mockData = [
+            let mockData = [
                 { "id": 1, "name": "Thor", "icon": "assets/Avengers-Thor-icon.png" },
                 { "id": 2, "name": "Captain America", "icon": "assets/Avengers-Captain-America-icon.png" }
             ];
