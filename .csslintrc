@@ -1,2 +1,3 @@
 --errors=important
 --warnings=import
+--quiet

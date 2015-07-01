@@ -1,71 +1,88 @@
 #Angular Master Seed
 
-##NOTES:
-* I will avoid referencing 'directives' in the traditional Angular 1.x sense in favour of 'components' which is more inline with Angular 2.0 proposals.
+##Overview
+
+#####NOTES:
+* I will avoid referencing 'directives' in the traditional Angular 1.x sense in favor of 'components' which is more inline with Angular 2.0 proposals.
 * When I refer to a 'view' it means a component which is built by combining other components.
+This project is a **very** opinionated Angular seed project full of my preferred Angular 1.x, and tooling best practices based on my experience using Angular 1.x on large projects.
 
----
-#Overview
-This project is a **very** opinitionated Angular seed project full of my preferred Angular 1.x, and tooling best practices based on my experience using Angular 1.x on large apps. The code is written using ES2015 and transpiled and built using Babel & Webpack. To assist with making the app flexible and transitional down the road I have adopted a component based strategy similiar to that proposed for Angular 2.0.  The component strategy consists of the app being broken down into as small components as possible to maximize reusability, keep logic simple and testing as uncomplicated as possible.  These components operate as little mini apps in their own right and contain their own CSS, JS, Templates and tests together for clarity.  This approach is inline with the Web Component spec and just makes sense to build a flexible and future friendly application.
+The code is written using ES2015 and transpiled using Babel & Webpack.
 
-###Approach
-* The app and its views are built by building templates using components with light view controllers that orchastrate communication between the components & business Logic in services.
-*  The app code is organized by feature with the most reusable parts existing in the common namespace.  Features by their nature are more complex and may contain any number of feature specific components, services and views.  When you start finding aspects of your features being used across multiple features, you should look at breaking out those aspects to the common namespace to keep the code DRY.
-Any 3rd party code should be managed in the vendor namespace.
+To assist with making the project flexible I have adopted a component based strategy similar to that proposed for Angular 2.0.  
 
-###Angular 1.x Best Practices
-* Use of controllerAS and bindToController syntax to minimize the need to reference $scope in templates, controllers and components.
-* Use of 'vm' (view model) for all controllerAs values for consistency.
-* Use of angular modules to organize and channel components into easily followable dependancy chains.
-* Using $inject to make minification safe dependancy injection for angular modules
-* Preference given to using isolate scopes to maximize component resability.
+This strategy consists of the app being broken down into small components with a focus on reusability.  This strategy keeps code isolated and is easier to maintain and test.  These Components contain their own Controllers, Directives, Services, CSS, JS, HTML templates and tests living together in the file structure.  This allows for maximum flexibility with transitional Angular 1.x components to Angular 2.0 in the future.
+
+####My Angular 1.x Best Practices
+* Keep controllers are light as possible.
+They should only deal with a views UI logic and data flow from the services.
+
+* Services should contain all of your business logic.  
+This allows for full reusability of your logic with minimal changes for your code to work with any Javascript system down the road.
+
+*  The app code is organized by feature with the most reusable parts existing in the common namespace.  
+Features by their nature are more complex and may contain any number of feature specific components, services and views.  When you start finding aspects of your features being used across multiple features, you should look at breaking out those aspects to the common namespace to keep the code DRY.
+
+* Use of angular modules to organize and channel components into easily followable dependency chains.
+
+* Using $inject to make minification safe dependency injection for angular modules.
+
 * Routing hooks should be contained to individual views to allow for increased flexibility and organization.
+
 * Avoid complex DI chains in features by having a single 'AppServices' service which contains references to all app specific common services.
+
 * Avoid complex DI chains in features by having a single 'AngularServices' service which contains references to the most commonly used Angular services.
+
 * Common components/services should not use 'AppServices' or 'AngularServices' so they can be easily decoupled and shared between projects if needed.
 
-###Code Stack
-* AngularJS
-* ES2015
-* Sass
+* Angular Components
+  * Any 3rd party code should be managed in the vendor namespace.
+  * Use of controllerAS and bindToController syntax to minimize the need to reference $scope in templates, controllers and components.
+  * Use of 'vm' (view model) for all controllerAs values for consistency.
+  * Preference given to using isolate scopes to maximize component reusability.
 
-###Bundled Vendor Modules
-* Angular Material - Material Design component library & styles
-* Angular UI Router - Robust Angular routing
-* Restangular - Easy Rest API Interactions
-* NgStats - Angular Performance Monitor
-* LogUnobtrusiveExtension - Add additional features to Angular $log service.
-* Lodash - Utility Toolset
-* Material Design Icon Webfont - https://www.google.com/design/icons/
+####Code Stack
+* [AngularJS](https://angularjs.org/)
+* [ES2015](https://babeljs.io/docs/learn-es2015/) - Future of Javascript
+* [Sass](http://sass-lang.com/) - CSS Preprocessor
+
+####Bundled Vendor Modules
+* [Angular Material](https://material.angularjs.org/) - Material Design Library & Styles
+* [Material Design Icon Webfont](https://www.google.com/design/icons/)
+* [Angular UI Router](https://github.com/angular-ui/ui-router) - Robust Angular Routing
+* [Restangular](https://github.com/mgonto/restangular) - Easy Rest API Interactions
+* [NgStats](https://github.com/kentcdodds/ng-stats) - Angular Performance Monitor
+* [AngularLogExtender](https://github.com/lwhiteley/AngularLogExtender) - Additional features for Angular $log.
+* [Lodash](https://lodash.com/) - Utility Toolset
 
 ---
-#Tooling
+##Tooling
 
-###Build Tools
-* Gulp - Build System Task Runner
-* Webpack - Code Bundler - (babel transpiling, eslint, sass compile & autoprefixer)
-* Babel - ES2015 Transpiler
-* BrowserSync - Live reload and synchronised device testing.
-* Json Server - Allows for development without finalized backend systems & excellent support for running tests without affecting real databases.
-* ESLint - ES2015 Linter to assist with code quality
+####Build Tools
+* [Gulp](http://gulpjs.com/) - Build System Task Runner
+* [Webpack](http://webpack.github.io/) - Code Bundler & Loader
+* [Babel](https://babeljs.io/) - ES2015 Transpiler
+* [BrowserSync](http://www.browsersync.io/) - Live reload and synchronized device testing.
+* [Json Server](https://github.com/typicode/json-server) - Allows for development without finalized backend systems & mocking databases.
+* [ESLint](http://eslint.org/) - eslint webpack loader to help with code quality
 
-###Testing Tools
+####Testing Tools
 * [Karma](http://karma-runner.github.io/) - Test Runner
 * [Jasmine](http://jasmine.github.io/2.3/introduction.html) - Unit & Integration Testing
 * [Jasmine Matchers](https://github.com/JamieMason/Jasmine-Matchers) - Additional Matchers for Jasmine
 * [Protractor](https://angular.github.io/protractor/#/) - End to End Testing
 * [Istanbul](https://gotwarlost.github.io/istanbul/) - Code Coverage Reporter
 
-##Documentation Tools
-* SassDoc - Generate documents from application styles.
-* ESDoc - Generate documents from javascript code.
+####Documentation Tools
+* [SassDoc](http://sassdoc.com/) - Generate documents from application styles.
+* [ESDoc](https://esdoc.org/) - Generate documents from javascript code.
 
-##Pre-Commit
-I use the pre-commit node module to run the eslint and karma gulp tasks to ensure code is checked and functional before commited to a repo.
+####GIT Pre-Commit Check
+I use [pre-commit](https://github.com/observing/pre-commit) to run the eslint and test gulp tasks before each commit is processed.  The commit fails if any issues arise from either task. This helps prevent breaking code from being added to the repo.
 
 ---
-#Gulp Tasks
-* Gulp tasks are organized inside the /gulp/tasks folder by function.
+##Gulp Tasks
+* Gulp tasks are organized inside the ./gulp/tasks folder by function.
 * gulp.config.js contains the project specific variables used by the tasks.
 
 ####Build Tasks
@@ -76,8 +93,8 @@ I use the pre-commit node module to run the eslint and karma gulp tasks to ensur
 ####Testing Tasks
 * gulp test - Single run of Jasmine integration & Unit tests with Karma. Also generates code coverage info in /.dist/tests.
 * gulp tdd - Run 'test' task with watchers so its rerun after every code change.
-* gulp e2e - Single run of Protractor E2E tests against the running local development code bundle.
-* gulp e2e-release - Single run of E2E against a local instance of a release code bundle.
+* gulp e2e - Single run of Protractor E2E tests against the running local development environment.
+* gulp e2e-release - Single run of E2E tests against a local instance of a release build.
 
 ###Documentation Tasks
 * gulp esdoc - Generates esdoc website into the ./dist/docs folder.
@@ -86,27 +103,29 @@ I use the pre-commit node module to run the eslint and karma gulp tasks to ensur
 For more information on the gulp tasks checkout ./gulp/tasks.
 
 ---
-#Generators
-To assist with development I have created a series of gulp tasks to generate the boilerplates for components, services, filters and views.
+##Generators
+To assist with development I have created a series of gulp tasks to generate the boilerplates for components, services and filters.
 
 * TODO - Fill out this section
 
 ---
-#Other Tooling & Resource Suggestions
-* [http://eslint.org/](http://eslint.org/) - Run an ES2015 linter in your editor of choice
+##Other Tooling & Resource Suggestions
 * [Angular Testing Patterns](https://github.com/daniellmb/angular-test-patterns) - A High-Quality Guide for Testing Angular 1.x Applications
-* DocBlockr - Simplify JSDOC Comments
-* Emmet - HTML & CSS Shortcuts
-* Git Gutter - See local changes of files easily
-* Elementor - Excellent tool for assisting with writing Protractor E2E tests.
+* [Elementor](https://github.com/andresdominguez/elementor) - Excellent tool for assisting with writing Protractor E2E tests.
+* [NG Inspector](http://ng-inspector.org/) - Angular Debugging Tool
+* [Emmet](http://emmet.io/) - HTML & CSS Shortcuts
+* [Git Gutter](https://github.com/gitgutter) - See local changes of files easily
+* [ESLINT](http://eslint.org/) - Run an ES2015 linter in your editor of choice
 
 ---
-#Inspiration & Thanks
+##Inspiration & Thanks
 The [NG6-Starter Repo](https://github.com/angular-class/NG6-starter) is where I originally got my inspiration for the component style approach of this repo.  If your looking for a much lighter build tool setup I highly recommend you take a look.
 
 ---
-#TODO
+##TODO
 * Investigate using ES2015 to write gulpfile + tasks.
 * Keeping checking in on JSDOC project to see how ES2015 support is.  Would prefer to be using this over ESDOC as its more robust.
-* Complete Generators Code for common and features.
+* Complete Generators code for common and features.
+* Setup csslint to use only a bundle of app css without vendor css.
 * Add purify css task to audit css.
+* clean up gulp.config.js.
