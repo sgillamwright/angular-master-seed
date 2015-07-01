@@ -5,6 +5,7 @@
 #####NOTES:
 * I will avoid referencing 'directives' in the traditional Angular 1.x sense in favor of 'components' which is more inline with Angular 2.0 proposals.
 * When I refer to a 'view' it means a component which is built by combining other components.
+
 This project is a **very** opinionated Angular seed project full of my preferred Angular 1.x, and tooling best practices based on my experience using Angular 1.x on large projects.
 
 The code is written using ES2015 and transpiled using Babel & Webpack.
