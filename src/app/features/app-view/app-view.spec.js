@@ -7,6 +7,34 @@ describe('Component::AppView', ()=>{
 
     beforeEach(window.module('app'));
 
+    beforeEach(inject((_AngularServices_, _AppServices_)=>{
+        $controller = new AppViewController(_AngularServices_, _AppServices_);
+    }));
+
+    describe('Controller', ()=>{
+
+        it('should have a $log', ()=>{
+            expect($controller['$log']).toBeDefined();
+        });
+
+        it('should have access to the AppServices.API', ()=>{
+            expect($controller['API']).toBeDefined();
+        });
+
+        it('should have a heros array', ()=> {
+            expect($controller['heros']).toBeDefined();
+            expect($controller['heros']).toBeArray();
+        });
+
+        it('should have a way to load data from API service', ()=> {
+            expect($controller['loadData']).toBeDefined();
+            //we don't need to test the internals of loadData as it just maps
+            //to a service which we already have tests on.
+            //We can just assume it works as expected, avoid testing dependancies in unit tests.
+        });
+
+    });
+
     describe('Component', ()=>{
         let component = AppViewComponent();
 

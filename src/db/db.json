@@ -3,32 +3,38 @@
     {
       "id": 1,
       "name": "Thor",
-      "icon": "assets/Avengers-Thor-icon.png"
+      "icon": "assets/Avengers-Thor-icon.png",
+      "hasSuperPowers": true
     },
     {
       "id": 2,
       "name": "Captain America",
-      "icon": "assets/Avengers-Captain-America-icon.png"
+      "icon": "assets/Avengers-Captain-America-icon.png",
+      "hasSuperPowers": true
     },
     {
       "id": 3,
       "name": "Black Widow",
-      "icon": "assets/Avengers-Black-Widow-icon.png"
+      "icon": "assets/Avengers-Black-Widow-icon.png",
+      "hasSuperPowers": false
     },
     {
       "id": 4,
       "name": "Iron Man",
-      "icon": "assets/Avengers-Iron-Man-icon.png"
+      "icon": "assets/Avengers-Iron-Man-icon.png",
+      "hasSuperPowers": false
     },
     {
       "id": 5,
       "name": "The Hulk",
-      "icon": "assets/Avengers-Hulk-icon.png"
+      "icon": "assets/Avengers-Hulk-icon.png",
+      "hasSuperPowers": true
     },
     {
       "id": 6,
       "name": "Hawkeye",
-      "icon": "assets/Avengers-Hawkeye-icon.png"
+      "icon": "assets/Avengers-Hawkeye-icon.png",
+      "hasSuperPowers": false
     }
   ]
 }

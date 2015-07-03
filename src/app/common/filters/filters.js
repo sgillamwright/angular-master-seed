@@ -1,3 +1,7 @@
 import angular from 'angular';
 
-export default angular.module('app.common.filters', []);
+import SuperpowersFilterModule from './superpowers/superpowers';
+
+export default angular.module('app.common.filters', [
+    SuperpowersFilterModule.name
+]);
