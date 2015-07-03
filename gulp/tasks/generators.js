@@ -15,27 +15,35 @@ gulp.task('generator', function(){
     var upperCaseName = camelCaseName.charAt(0).toUpperCase() + camelCaseName.slice(1);
 
     var targetPath = "";
-    switch (type) {
+    var templatePath = "";
+    switch (type.toLowerCase()) {
         case "component":
             targetPath = path.join(config.src.components, name);
+            templatePath = config.generators.component.templates;
             break;
         case "filter":
             targetPath = path.join(config.src.filters, name);
+            templatePath = config.generators.filter.templates;
             break;
         case "service":
             targetPath = path.join(config.src.services, name);
+            templatePath = config.generators.component.service;
             break;
         case "feature":
-            targetPath = path.join(config.src.services, name);
+            targetPath = path.join(config.src.features, name);
+            templatePath = config.generators.component.templates;
             break;
         case "feature:component":
-            targetPath = path.join(config.src.services, parent, 'compoennts');
+            targetPath = path.join(config.src.component, parent, 'components');
+            templatePath = config.generators.component.templates;
             break;
         case "feature:service":
             targetPath = path.join(config.src.services, parent, 'services');
+            templatePath = config.generators.service.templates;
             break;
         case "feature:view":
-            targetPath = path.join(config.src.services, parent, 'views');
+            targetPath = path.join(config.src.component, parent, 'views');
+            templatePath = config.generators.component.templates;
             break;
         default:
             console.log("Unknown generator type!  Aborted!");
@@ -43,47 +51,7 @@ gulp.task('generator', function(){
             break;
     }
 
-    return gulp.src(config.generators.component.templates)
-        .pipe(template({
-            name: name,
-            upperCaseName: upperCaseName,
-            camelCaseName: camelCaseName
-        }))
-        .pipe(rename(function(path){
-            path.basename = path.basename.replace('temp', name);
-        }))
-        .pipe(gulp.dest(targetPath));
-});
-
-//generate a new common service boilerplate inside the app
-gulp.task('service:common', function(){
-    var name = yargs.name;
-    var camelCaseName = S(name).camelize().s;
-    var upperCaseName = camelCaseName.charAt(0).toUpperCase() + camelCaseName.slice(1);
-    var lowerCaseName = camelCaseName.charAt(0).toLowerCase() + camelCaseName.slice(1);
-    var targetPath = path.join(config.src.services, name);
-
-    return gulp.src(config.generators.service.templates)
-        .pipe(template({
-            name: name,
-            upperCaseName: upperCaseName,
-            lowerCaseName: lowerCaseName,
-            camelCaseName: camelCaseName
-        }))
-        .pipe(rename(function(path){
-            path.basename = path.basename.replace('temp', name);
-        }))
-        .pipe(gulp.dest(targetPath));
-});
-
-//generate a new filter boilerplate inside the app
-gulp.task('filter:common', function(){
-    var name = yargs.name;
-    var camelCaseName = S(name).camelize().s;
-    var upperCaseName = camelCaseName.charAt(0).toUpperCase() + camelCaseName.slice(1);
-    var targetPath = path.join(config.src.filters, name);
-
-    return gulp.src(config.generators.filter.templates)
+    return gulp.src(templatePath)
         .pipe(template({
             name: name,
             upperCaseName: upperCaseName,
