@@ -72,6 +72,7 @@ Features by their nature are more complex and may contain any number of feature 
 * [Jasmine](http://jasmine.github.io/2.3/introduction.html) - Unit & Integration Testing
 * [Jasmine Matchers](https://github.com/JamieMason/Jasmine-Matchers) - Additional Matchers for Jasmine
 * [Protractor](https://angular.github.io/protractor/#/) - End to End Testing
+* [Isparta](https://github.com/douglasduteil/isparta) - ES2015 Code Coverage Tool
 * [Istanbul](https://gotwarlost.github.io/istanbul/) - Code Coverage Reporter
 
 ####Documentation Tools
