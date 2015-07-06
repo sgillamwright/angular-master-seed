@@ -10,7 +10,7 @@ This project is a **very** opinionated Angular seed project full of my preferred
 
 The code is written using ES2015 and transpiled using Babel & Webpack.
 
-To assist with making the project flexible I have adopted a component based strategy similar to that proposed for Angular 2.0.  
+To assist with making the project flexible I have adopted a component based strategy similar to that proposed for Angular 2.0.
 
 This strategy consists of the app being broken down into small components with a focus on reusability.  This strategy keeps code isolated and is easier to maintain and test.  These Components contain their own Controllers, Directives, Services, CSS, JS, HTML templates and tests living together in the file structure.  This allows for maximum flexibility with transitional Angular 1.x components to Angular 2.0 in the future.
 
@@ -18,10 +18,10 @@ This strategy consists of the app being broken down into small components with a
 * Keep controllers are light as possible.
 They should only deal with a views UI logic and data flow from the services.
 
-* Services should contain all of your business logic.  
+* Services should contain all of your business logic.
 This allows for full reusability of your logic with minimal changes for your code to work with any Javascript system down the road.
 
-*  The app code is organized by feature with the most reusable parts existing in the common namespace.  
+*  The app code is organized by feature with the most reusable parts existing in the common namespace.
 Features by their nature are more complex and may contain any number of feature specific components, services and views.  When you start finding aspects of your features being used across multiple features, you should look at breaking out those aspects to the common namespace to keep the code DRY.
 
 * Use of angular modules to organize and channel components into easily followable dependency chains.
@@ -105,11 +105,80 @@ For more information on the gulp tasks checkout ./gulp/tasks.
 
 ---
 ##Generators
-To assist with development I have created a series of gulp tasks to generate the boilerplates for components, services and filters.
+To assist with development I have created a series of gulp tasks to generate the boilerplates for components, services and filters in various locations inside the app code.  Please note that you need to manually include the generated codes module into the app after its been generated to use it.
 
-* TODO - Fill out this section
-
+#####Common component
+Syntax:
+```
+gulp generator --type common:component --name component-name
+```
+Example:
+```
+ gulp generator --type common:component --name performance-bar
+```
 ---
+#####Common service
+Syntax:
+```
+gulp generator --type common:service --name service-name
+```
+Example:
+```
+ gulp generator --type common:service --name api
+```
+---
+#####Common filter
+Syntax:
+```
+gulp generator --type common:filter --name filter-name
+```
+Example:
+```
+ gulp generator --type common:filter --name superpowers
+```
+---
+#####Feature
+Syntax:
+```
+gulp generator --type feature --name feature-name
+```
+Example:
+```
+ gulp generator --type feature --name app-view
+```
+---
+
+#####Feature specific component
+Syntax:
+```
+gulp generator --type feature:component --name component-name --parent parent-feature-folder
+```
+Example:
+```
+ gulp generator --type feature:component --name hero-block --parent app-view
+```
+---
+#####Feature specific service
+Syntax:
+```
+gulp generator --type feature:service --name service-name --parent parent-feature-folder
+```
+Example:
+```
+ gulp generator --type feature:service --name hero-service --parent app-view
+```
+---
+#####Feature specific view
+Syntax:
+```
+gulp generator --type feature:view --name view-name --parent parent-feature-folder
+```
+Example:
+```
+ gulp generator --type feature:view --name hero-view --parent app-view
+```
+---
+
 ##Other Tooling & Resource Suggestions
 * [Angular Testing Patterns](https://github.com/daniellmb/angular-test-patterns) - A High-Quality Guide for Testing Angular 1.x Applications
 * [Elementor](https://github.com/andresdominguez/elementor) - Excellent tool for assisting with writing Protractor E2E tests.
@@ -126,7 +195,6 @@ The [NG6-Starter Repo](https://github.com/angular-class/NG6-starter) is where I 
 ##TODO
 * Investigate using ES2015 to write gulpfile + tasks.
 * Keeping checking in on JSDOC project to see how ES2015 support is.  Would prefer to be using this over ESDOC as its more robust.
-* Complete Generators code for common and features.
 * Setup csslint to use only a bundle of app css without vendor css.
 * Add purify css task to audit css.
 * clean up gulp.config.js.

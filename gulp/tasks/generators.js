@@ -13,36 +13,37 @@ gulp.task('generator', function(){
     var parent = yargs.parent;
     var camelCaseName = S(name).camelize().s;
     var upperCaseName = camelCaseName.charAt(0).toUpperCase() + camelCaseName.slice(1);
+    var lowerCaseName = camelCaseName.charAt(0).toLowerCase() + camelCaseName.slice(1);
 
     var targetPath = "";
     var templatePath = "";
     switch (type.toLowerCase()) {
-        case "component":
+        case "common:component":
             targetPath = path.join(config.src.components, name);
             templatePath = config.generators.component.templates;
             break;
-        case "filter":
+        case "common:filter":
             targetPath = path.join(config.src.filters, name);
             templatePath = config.generators.filter.templates;
             break;
-        case "service":
+        case "common:service":
             targetPath = path.join(config.src.services, name);
-            templatePath = config.generators.component.service;
+            templatePath = config.generators.service.templates;
             break;
         case "feature":
             targetPath = path.join(config.src.features, name);
             templatePath = config.generators.component.templates;
             break;
         case "feature:component":
-            targetPath = path.join(config.src.component, parent, 'components');
+            targetPath = path.join(config.src.features, parent, 'components', name);
             templatePath = config.generators.component.templates;
             break;
         case "feature:service":
-            targetPath = path.join(config.src.services, parent, 'services');
+            targetPath = path.join(config.src.features, parent, 'services', name);
             templatePath = config.generators.service.templates;
             break;
         case "feature:view":
-            targetPath = path.join(config.src.component, parent, 'views');
+            targetPath = path.join(config.src.features, parent, 'views', name);
             templatePath = config.generators.component.templates;
             break;
         default:
@@ -55,7 +56,8 @@ gulp.task('generator', function(){
         .pipe(template({
             name: name,
             upperCaseName: upperCaseName,
-            camelCaseName: camelCaseName
+            camelCaseName: camelCaseName,
+            lowerCaseName: lowerCaseName
         }))
         .pipe(rename(function(path){
             path.basename = path.basename.replace('temp', name);
