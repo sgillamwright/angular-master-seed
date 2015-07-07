@@ -8,7 +8,7 @@ describe('Component::AppView', ()=>{
     beforeEach(window.module('app'));
 
     beforeEach(inject((_AngularServices_, _AppServices_, _$q_, _$rootScope_)=>{
-        var deferred = _$q_.defer();
+        let deferred = _$q_.defer();
         AppServices = _AppServices_;
         rootScope = _$rootScope_;
 
