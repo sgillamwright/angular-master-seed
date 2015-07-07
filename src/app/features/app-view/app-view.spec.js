@@ -3,22 +3,15 @@ import AppViewComponent from './app-view.component';
 import AppViewTemplate from './app-view.html';
 
 describe('Component::AppView', ()=>{
-    let $controller, AppServices, rootScope;
+    let $controller, AppServices, rootScope, deferred;
 
     beforeEach(window.module('app'));
 
     beforeEach(inject((_AngularServices_, _AppServices_, _$q_, _$rootScope_)=>{
-        let deferred = _$q_.defer();
+        //used by controller tests
+        deferred = _$q_.defer();
         AppServices = _AppServices_;
         rootScope = _$rootScope_;
-
-        let mockData = [
-            { "id": 1, "name": "Thor", "icon": "assets/Avengers-Thor-icon.png" },
-            { "id": 2, "name": "Captain America", "icon": "assets/Avengers-Captain-America-icon.png" }
-        ];
-        deferred.resolve(mockData);
-        spyOn(AppServices.API, 'getHeros').and.returnValue(deferred.promise);
-
         $controller = new AppViewController(_AngularServices_, _AppServices_);
     }));
 
@@ -38,14 +31,25 @@ describe('Component::AppView', ()=>{
         });
 
         it('should load data from API.getHeros()', ()=> {
-            expect($controller['loadData']).toBeDefined();
+
+            //arrange
+            let mockData = [
+                { "id": 1, "name": "Thor", "icon": "assets/Avengers-Thor-icon.png" },
+                { "id": 2, "name": "Captain America", "icon": "assets/Avengers-Captain-America-icon.png" }
+            ];
+            deferred.resolve(mockData);
+            spyOn(AppServices.API, 'getHeros').and.returnValue(deferred.promise);
+
+            //act
             $controller.loadData();
-            //need to trigger $apply to have promises resolve properly
-            rootScope.$apply();
+            rootScope.$apply();   //need to trigger $apply to have promises resolve properly
+
+            //assert
+            expect($controller['loadData']).toBeDefined();
             expect($controller.API.getHeros).toHaveBeenCalled();
             expect($controller.heros).toBeArrayOfSize(2);
-            //we don't need to test the internals of API.getHeros as it just maps
-            //to a service which we already have tests on.
+            //we don't need to test the internals of API.getHeros as it is tested in the services tests.
+            //All we need to do is mock the reponse so we can confirm our controller method internally calls the service.
             //Avoid actually testing dependancies in unit tests.
         });
 
@@ -78,7 +82,6 @@ describe('Component::AppView', ()=>{
             //with isolated scope that uses controllerAs,
             //the component’s properties are bound to the controller
             //rather than to the scope.
-            //
             if (component.scope === true || component.scope === false) {
                 //scope: true -  Directive gets a new scope but inherits from parent scope
                 //scope: false - Directive uses its parent scope

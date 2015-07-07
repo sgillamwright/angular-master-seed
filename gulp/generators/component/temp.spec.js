@@ -56,7 +56,6 @@ describe('Component::<%= upperCaseName %>', ()=>{
             //with isolated scope that uses controllerAs,
             //the component’s properties are bound to the controller
             //rather than to the scope.
-            //
             if (component.scope === true || component.scope === false) {
                 //scope: true -  Directive gets a new scope but inherits from parent scope
                 //scope: false - Directive uses its parent scope
