@@ -1,7 +1,7 @@
 require('babel-core/register');
 
 exports.config = {
-    framework: 'jasmine',
+    framework: 'jasmine2',
     directConnect: true,
     firefoxPath: null,
     chromeDriver: null,
@@ -16,10 +16,16 @@ exports.config = {
             'args': ['no-sandbox']
         }
     },
+    onPrepare: function() {
+        var SpecReporter = require('jasmine-spec-reporter');
+        jasmine.getEnv().addReporter(new SpecReporter({displayStacktrace: true}));
+    },
     jasmineNodeOpts: {
         isVerbose: false,
+        showColors: true,
         showTiming: false,
         includeStackTrace: false,
-        defaultTimeoutInterval: 30000
+        defaultTimeoutInterval: 30000,
+        print: function() {}
     }
 };

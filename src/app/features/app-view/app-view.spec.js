@@ -3,11 +3,22 @@ import AppViewComponent from './app-view.component';
 import AppViewTemplate from './app-view.html';
 
 describe('Component::AppView', ()=>{
-    let $controller;
+    let $controller, AppServices, rootScope;
 
     beforeEach(window.module('app'));
 
-    beforeEach(inject((_AngularServices_, _AppServices_)=>{
+    beforeEach(inject((_AngularServices_, _AppServices_, _$q_, _$rootScope_)=>{
+        var deferred = _$q_.defer();
+        AppServices = _AppServices_;
+        rootScope = _$rootScope_;
+
+        let mockData = [
+            { "id": 1, "name": "Thor", "icon": "assets/Avengers-Thor-icon.png" },
+            { "id": 2, "name": "Captain America", "icon": "assets/Avengers-Captain-America-icon.png" }
+        ];
+        deferred.resolve(mockData);
+        spyOn(AppServices.API, 'getHeros').and.returnValue(deferred.promise);
+
         $controller = new AppViewController(_AngularServices_, _AppServices_);
     }));
 
@@ -26,11 +37,16 @@ describe('Component::AppView', ()=>{
             expect($controller['heros']).toBeArray();
         });
 
-        it('should have a way to load data from API service', ()=> {
+        it('should load data from API.getHeros()', ()=> {
             expect($controller['loadData']).toBeDefined();
-            //we don't need to test the internals of loadData as it just maps
+            $controller.loadData();
+            //need to trigger $apply to have promises resolve properly
+            rootScope.$apply();
+            expect($controller.API.getHeros).toHaveBeenCalled();
+            expect($controller.heros).toBeArrayOfSize(2);
+            //we don't need to test the internals of API.getHeros as it just maps
             //to a service which we already have tests on.
-            //We can just assume it works as expected, avoid testing dependancies in unit tests.
+            //Avoid actually testing dependancies in unit tests.
         });
 
     });

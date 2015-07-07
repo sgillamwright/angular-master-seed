@@ -45,15 +45,15 @@ module.exports = function(config) {
         stats: {
           colors: true
         },
-        quiet: true //reduce spam
+        quiet: false //reduce spam
     },
     webpackServer: {
-      noInfo: true //please don't spam the console when running in karma!
+      noInfo: false //please don't spam the console when running in karma!
     },
 
     // test results reporter to use
     // available reporters: https://npmjs.org/browse/keyword/karma-reporter
-    reporters: ['progress', 'coverage'],
+    reporters: ['spec', 'coverage'],
 
     coverageReporter: {
       reporters: [

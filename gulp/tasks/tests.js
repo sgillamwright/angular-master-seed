@@ -11,7 +11,7 @@ gulp.task('e2e', function() {
             'configFile': config.files.tests.configs.protractor,
             'args': ['--baseUrl', 'http://localhost:8000'],
             'autoStartStopServer': true,
-            'debug': true
+            'debug': false
         })).on('error', function(err) { console.log(err); throw err;});
 });
 
