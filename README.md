@@ -1,5 +1,13 @@
 #Angular Master Seed
 
+---
+[Tooling](#tooling)
+[Gulp Tasks](#gulp-tasks)
+[Generators](#generators)
+[Inspiration & Thanks](#inspiration-&-thanks)
+[Todo](#todo)
+---
+
 ##Overview
 
 #####NOTES:
