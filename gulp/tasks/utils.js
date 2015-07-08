@@ -6,6 +6,7 @@ var exec = require('child_process').exec;
 var exit = require('gulp-exit');
 var eslint = require('gulp-eslint');
 var csslint = require('gulp-csslint');
+var purify = require('gulp-purifycss');
 
 //clear terminal and timestamp output for easier scanning
 gulp.task('timestamp', function (cb) {
@@ -49,8 +50,16 @@ gulp.task('eslint', function () {
         .pipe(eslint.failOnError());
 });
 
+//csslint on final css bundle
 gulp.task('csslint', function() {
   gulp.src('./dist/app.css')
     .pipe(csslint())
     .pipe(csslint.reporter());
+});
+
+//remove unused css from final css bundle
+gulp.task('purify-css', function() {
+  return gulp.src('./dist/app.css')
+    .pipe(purify(['./dist/*.js', './dist/*.html']))
+    .pipe(gulp.dest('./dist'));
 });
