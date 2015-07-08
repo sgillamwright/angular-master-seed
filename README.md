@@ -2,9 +2,13 @@
 
 ---
 [Tooling](#tooling)
+
 [Gulp Tasks](#gulp-tasks)
+
 [Generators](#generators)
-[Inspiration & Thanks](#inspiration-&-thanks)
+
+[Inspiration & Thanks](#inspiration--thanks)
+
 [Todo](#todo)
 ---
 
