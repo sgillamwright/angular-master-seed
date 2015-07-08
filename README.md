@@ -65,7 +65,6 @@ Features by their nature are more complex and may contain any number of feature 
 * [Babel](https://babeljs.io/) - ES2015 Transpiler
 * [BrowserSync](http://www.browsersync.io/) - Live reload and synchronized device testing.
 * [Json Server](https://github.com/typicode/json-server) - Allows for development without finalized backend systems & mocking databases.
-* [ESLint](http://eslint.org/) - eslint webpack loader to help with code quality
 
 ####Testing Tools
 * [Karma](http://karma-runner.github.io/) - Test Runner
@@ -74,6 +73,11 @@ Features by their nature are more complex and may contain any number of feature 
 * [Protractor](https://angular.github.io/protractor/#/) - End to End Testing
 * [Isparta](https://github.com/douglasduteil/isparta) - ES2015 Code Coverage Tool
 * [Istanbul](https://gotwarlost.github.io/istanbul/) - Code Coverage Reporter
+
+####Code Quality Tools
+* [ESLint](http://eslint.org/) - eslint webpack loader to help with code quality
+* [CSSLint](https://github.com/CSSLint/csslint/) - perform css audit on final css bundle
+* [Purify CSS](https://github.com/purifycss/purifycss/) - remove unused css from css build file
 
 ####Documentation Tools
 * [SassDoc](http://sassdoc.com/) - Generate documents from application styles.
@@ -90,7 +94,7 @@ I use [pre-commit](https://github.com/observing/pre-commit) to run the eslint an
 ####Build Tasks
 * gulp - start local development workflow
 * gulp release-dryrun - bundle app for release and run all its tests against the app running with a mocked db of test data.
-* gulp release - bundle app for release (minification & tests)
+* gulp release - bundle app for release. (minification & tests)
 
 ####Testing Tasks
 * gulp test - Single run of Jasmine integration & Unit tests with Karma. Also generates code coverage info in /.dist/tests.
@@ -98,9 +102,13 @@ I use [pre-commit](https://github.com/observing/pre-commit) to run the eslint an
 * gulp e2e - Single run of Protractor E2E tests against the running local development environment.
 * gulp e2e-release - Single run of E2E tests against a local instance of a release build.
 
+####Code Quality Tasks
+* gulp eslint - Scan ./src js files for issues.
+* gulp csslint - Scan ./dist css for issues.
+* gulp purify-css - Run purify-css against ./dist content.
+
 ###Documentation Tasks
 * gulp esdoc - Generates esdoc website into the ./dist/docs folder.
-* gulp sassdoc - Generates sassdoc website into the ./dist/docs folder.
 
 For more information on the gulp tasks checkout ./gulp/tasks.
 
@@ -197,5 +205,4 @@ The [NG6-Starter Repo](https://github.com/angular-class/NG6-starter) is where I 
 * Investigate using ES2015 to write gulpfile + tasks.
 * Keeping checking in on JSDOC project to see how ES2015 support is.  Would prefer to be using this over ESDOC as its more robust.
 * Setup csslint to use only a bundle of app css without vendor css.
-* Add purify css task to audit css.
 * clean up gulp.config.js.
