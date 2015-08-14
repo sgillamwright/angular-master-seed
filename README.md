@@ -95,22 +95,25 @@ I use [pre-commit](https://github.com/observing/pre-commit) to run the eslint an
 
 ####Build Tasks
 * gulp - start local development workflow
-* gulp release-dryrun - bundle app for release and run all its tests against the app running with a mocked db of test data.
+* gulp release:dryrun - bundle app for release and run all its tests against the app running with a mocked db of test data.
 * gulp release - bundle app for release. (minification & tests)
 
 ####Testing Tasks
 * gulp test - Single run of Jasmine integration & Unit tests with Karma. Also generates code coverage info in /.dist/tests.
 * gulp tdd - Run 'test' task with watchers so its rerun after every code change.
 * gulp e2e - Single run of Protractor E2E tests against the running local development environment.
-* gulp e2e-release - Single run of E2E tests against a local instance of a release build.
+* gulp e2e:release - Single run of E2E tests against a local instance of a release build.
 
 ####Code Quality Tasks
-* gulp eslint - Scan ./src js files for issues.
-* gulp csslint - Scan ./dist css for issues.
-* gulp purify-css - Run purify-css against ./dist content.
+* gulp js:lint - Scan ./src js files for issues.
+* gulp css:lint - Scan ./dist css for issues.
+* gulp css:purify - Run purify-css against ./dist content.
 
 ###Documentation Tasks
-* gulp esdoc - Generates esdoc website into the ./dist/docs folder.
+* gulp docs:js - Generates esdoc website into the ./dist/docs.
+* gulp docs:css - Generates SassDocs website into the ./dist/docs.
+* gulp docs - Generates all doc into ./dist/docs.
+* gulp docs:clean - Removes generated docs from ./dist.
 
 For more information on the gulp tasks checkout ./gulp/tasks.
 
@@ -191,12 +194,14 @@ Example:
 ---
 
 ##Other Tooling & Resource Suggestions
-* [Angular Testing Patterns](https://github.com/daniellmb/angular-test-patterns) - A High-Quality Guide for Testing Angular 1.x Applications
+* [Angular Testing Patterns](https://github.com/daniellmb/angular-test-patterns) - A High-Quality Guide for Testing Angular 1.x Applications.
 * [Elementor](https://github.com/andresdominguez/elementor) - Excellent tool for assisting with writing Protractor E2E tests.
-* [NG Inspector](http://ng-inspector.org/) - Angular Debugging Tool
-* [Emmet](http://emmet.io/) - HTML & CSS Shortcuts
+* [NG Inspector](http://ng-inspector.org/) - Angular Debugging Tool.
+* [Emmet](http://emmet.io/) - HTML & CSS Shortcuts.
 * [Git Gutter](https://github.com/gitgutter) - See local changes of files easily
-* [ESLINT](http://eslint.org/) - Run an ES2015 linter in your editor of choice
+* [ESLINT](http://eslint.org/) - Run an ES2015 linter in your editor of choice.
+* [ESFormatter](https://github.com/millermedeiros/esformatter) - ECMAScript code beautifier/formatter.
+* [EditorConfig](http://editorconfig.org/) - Ensure consistent coding styles across editors for a project.
 
 ---
 ##Inspiration & Thanks

@@ -6,7 +6,7 @@ var shell = require('gulp-shell');
 var runSequence = require('run-sequence');
 
 //generate sassdocs
-gulp.task('sassdoc', function() {
+gulp.task('docs:sass', function() {
   var options = {
     dest: config.docs.sassdoc,
     verbose: true,
@@ -16,16 +16,16 @@ gulp.task('sassdoc', function() {
 });
 
 //generate esdoc from command line
-gulp.task('esdoc', shell.task([
+gulp.task('docs:js', shell.task([
   'esdoc -c esdoc.config.json'
 ]));
 
 //ensure we get fresh docs everytime
-gulp.task('clean-docs', function(done) {
+gulp.task('docs:clean', function(done) {
   del(config.dist.docs, done)
 });
 
 //generate all app docs
 gulp.task('docs', function(done) {
-  runSequence('clean-docs', 'sassdoc', 'esdoc', done);
+  runSequence('docs:clean', 'docs:sass', 'docs:js', done);
 });

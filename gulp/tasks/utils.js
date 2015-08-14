@@ -28,7 +28,7 @@ gulp.task('clean', function(done) {
 });
 
 //create a json server
-gulp.task('mockdb', function() {
+gulp.task('db:mock', function() {
   var server = jsonServer.create(); // Returns an Express server
   var router = jsonServer.router(config.files.db); // Returns an Express router
   server.use(jsonServer.defaults); // logger, static and cors middlewares
@@ -37,7 +37,7 @@ gulp.task('mockdb', function() {
 });
 
 //eslint pre-commit task
-gulp.task('eslint', function() {
+gulp.task('js:lint', function() {
   return gulp.src(config.files.app.js)
     // eslint() attaches the lint output to the eslint property
     // of the file object so it can be used by other modules.
@@ -51,14 +51,14 @@ gulp.task('eslint', function() {
 });
 
 //csslint on final css bundle
-gulp.task('csslint', function() {
+gulp.task('css:lint', function() {
   gulp.src('./dist/app.css')
     .pipe(csslint())
     .pipe(csslint.reporter());
 });
 
 //remove unused css from final css bundle
-gulp.task('purify-css', function() {
+gulp.task('css:purify', function() {
   return gulp.src('./dist/app.css')
     .pipe(purify(['./dist/*.js', './dist/*.html']))
     .pipe(gulp.dest('./dist'));

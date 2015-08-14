@@ -19,8 +19,8 @@ gulp.task('e2e', function() {
 });
 
 //build app and run the protractor tests against a release bundle
-gulp.task('e2e-release', function(done) {
-  runSequence('clean', 'fresh-build', 'bundle-release', 'copy-html-release', 'copy-assets', 'mockdb', 'browser-sync', 'e2e', 'stop', done);
+gulp.task('e2e:release', function(done) {
+  runSequence('clean', 'build:fresh', 'build:release', 'copy:release', 'copy:assets', 'db:mock', 'browserSync', 'e2e', 'stop', done);
 });
 
 
