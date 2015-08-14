@@ -6,13 +6,13 @@ import controller from './app-view.controller';
  * Used for rigging angular directives
  */
 export default () => {
-	return {
-		template,
-		controller,
-        replace: true,
-		restrict: 'E',
-		controllerAs: 'vm',
-		bindToController: true,
-        scope: {},
-	};
+  return {
+    template,
+    controller,
+    replace: true,
+    restrict: 'E',
+    controllerAs: 'vm',
+    bindToController: true,
+    scope: {},
+  };
 };

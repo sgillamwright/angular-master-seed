@@ -1,4 +1,3 @@
 import angular from 'angular';
 
-export default angular.module('app.features.featureOne', [
-]);
+export default angular.module('app.features.featureOne', []);

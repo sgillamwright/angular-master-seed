@@ -6,68 +6,68 @@ var template = require('gulp-template');
 var runSequence = require('run-sequence');
 
 //prep project for a build
-gulp.task('fresh-build', function (done) {
+gulp.task('fresh-build', function(done) {
   runSequence('clean', 'timestamp', done);
 });
 
 //bundle up app code into release bundle with webpack
-gulp.task('bundle-release', function(){
-    var webpackConfig = require(config.files.build.webpack.release);
-    return gulp.src(config.src.appEntry)
-        .pipe(webpack(webpackConfig))
-        .pipe(gulp.dest(config.dist.target));
+gulp.task('bundle-release', function() {
+  var webpackConfig = require(config.files.build.webpack.release);
+  return gulp.src(config.src.appEntry)
+    .pipe(webpack(webpackConfig))
+    .pipe(gulp.dest(config.dist.target));
 });
 
 //bundle up app code into developer bundle with webpack
-gulp.task('bundle-dev', function(){
-    var webpackConfig = require(config.files.build.webpack.dev);
-    return gulp.src(config.src.appEntry)
-        .pipe(webpack(webpackConfig))
-        .pipe(gulp.dest(config.dist.target));
+gulp.task('bundle-dev', function() {
+  var webpackConfig = require(config.files.build.webpack.dev);
+  return gulp.src(config.src.appEntry)
+    .pipe(webpack(webpackConfig))
+    .pipe(gulp.dest(config.dist.target));
 });
 
 //copy index.html template and inject developer js/css bundles
 gulp.task('copy-html-dev', function() {
-   return gulp.src(config.src.index)
-        .pipe(template({
-            appJS: 'bundle.js',
-            appCSS: 'app.css'
-        }))
-        .pipe(gulp.dest(config.dist.target));
+  return gulp.src(config.src.index)
+    .pipe(template({
+      appJS: 'bundle.js',
+      appCSS: 'app.css'
+    }))
+    .pipe(gulp.dest(config.dist.target));
 });
 
 //copy index.html template and inject production js/css bundles
 gulp.task('copy-html-release', function() {
-   return gulp.src(config.src.index)
-        .pipe(template({
-            appJS: 'bundle.min.js',
-            appCSS: 'app.min.css'
-        }))
-        .pipe(gulp.dest(config.dist.target));
+  return gulp.src(config.src.index)
+    .pipe(template({
+      appJS: 'bundle.min.js',
+      appCSS: 'app.min.css'
+    }))
+    .pipe(gulp.dest(config.dist.target));
 });
 
 //copy assets to dist
 gulp.task('copy-assets', function() {
-    return gulp.src(config.files.app.assets)
-            .pipe(gulp.dest(config.dist.assets));
+  return gulp.src(config.files.app.assets)
+    .pipe(gulp.dest(config.dist.assets));
 });
 
 //deploy browser-sync for live reload
-gulp.task('browser-sync', function(){
-    browserSync({
-        port: process.env.PORT || config.port,
-        open: true,
-        server: {
-            baseDir: config.dist.target
-        }
-    });
+gulp.task('browser-sync', function() {
+  browserSync({
+    port: process.env.PORT || config.port,
+    open: true,
+    server: {
+      baseDir: config.dist.target
+    }
+  });
 });
 
 //setup watchers and tasks for local dev
-gulp.task('watch', function(){
-    gulp.watch([config.files.app.js, '!./src/app/**/*.spec.js'], ['timestamp', 'bundle-dev', browserSync.reload]);
-    gulp.watch(config.files.app.html, ['timestamp', 'bundle-dev', browserSync.reload]);
-    gulp.watch(config.files.app.scss, ['timestamp', 'bundle-dev', browserSync.reload]);
+gulp.task('watch', function() {
+  gulp.watch([config.files.app.js, '!./src/app/**/*.spec.js'], ['timestamp', 'bundle-dev', browserSync.reload]);
+  gulp.watch(config.files.app.html, ['timestamp', 'bundle-dev', browserSync.reload]);
+  gulp.watch(config.files.app.scss, ['timestamp', 'bundle-dev', browserSync.reload]);
 });
 
 

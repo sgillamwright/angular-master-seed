@@ -1,6 +1,7 @@
 export default function LoaderIndicatorConfig($httpProvider) {
 
-    let interceptor = ['$q', '$rootScope', '$log', function ($q, $rootScope, $log) {
+  let interceptor = ['$q', '$rootScope', '$log',
+    function($q, $rootScope, $log) {
 
       /**
        * The total number of requests made
@@ -14,40 +15,42 @@ export default function LoaderIndicatorConfig($httpProvider) {
 
       return {
         'request': function(config) {
-            $rootScope.isDataLoading = true;
-            reqsTotal++;
-            return config;
+          $rootScope.isDataLoading = true;
+          reqsTotal++;
+          return config;
         },
 
         'response': function(response) {
-            if (!response || !response.config) {
-                $log.error('Broken interceptor detected: Config object not supplied in response.');
-                return response;
-            }
-
-            reqsCompleted++;
-            if (reqsCompleted >= reqsTotal) {
-                $rootScope.isDataLoading = false;
-            }
+          if (!response || !response.config) {
+            $log.error('Broken interceptor detected: Config object not supplied in response.');
             return response;
+          }
+
+          reqsCompleted++;
+          if (reqsCompleted >= reqsTotal) {
+            $rootScope.isDataLoading = false;
+          }
+          return response;
         },
 
         'responseError': function(rejection) {
-            if (!rejection || !rejection.config) {
-                $log.error('Broken interceptor detected: Config object not supplied in rejection.');
-                return $q.reject(rejection);
-            }
-
-            reqsCompleted++;
-            if (reqsCompleted >= reqsTotal) {
-                $rootScope.isDataLoading = false;
-            }
+          if (!rejection || !rejection.config) {
+            $log.error('Broken interceptor detected: Config object not supplied in rejection.');
             return $q.reject(rejection);
+          }
+
+          reqsCompleted++;
+          if (reqsCompleted >= reqsTotal) {
+            $rootScope.isDataLoading = false;
+          }
+          return $q.reject(rejection);
         }
       };
-    }];
+    }
+  ];
 
-    $httpProvider.interceptors.push(interceptor);
-};
+  $httpProvider.interceptors.push(interceptor);
+}
+;
 
 LoaderIndicatorConfig.$inject = ['$httpProvider'];

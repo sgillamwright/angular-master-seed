@@ -17,9 +17,9 @@ import AppConfig from './app.config';
 import Styles from './app.scss';
 
 angular.module('app', [
-    Vendor.name,
-	Common.name,
-    Features.name,
+  Vendor.name,
+  Common.name,
+  Features.name,
 ])
-.config(AppConfig)
-.directive('app', AppComponent);
+  .config(AppConfig)
+  .directive('app', AppComponent);

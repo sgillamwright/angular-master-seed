@@ -5,31 +5,31 @@ import angular from 'angular';
  */
 export class APIService {
 
+  /**
+   * @param {$log} $log - Angular logging Service.
+   * @param {Restangular} Restangular - Restangular Service.
+   */
+  constructor($log, Restangular) {
     /**
-     * @param {$log} $log - Angular logging Service.
-     * @param {Restangular} Restangular - Restangular Service.
+     * @type {$log}
      */
-    constructor($log, Restangular) {
-        /**
-         * @type {$log}
-         */
-        this.$log = $log.getInstance('API', true);
-        this.$log.debug('constructor');
+    this.$log = $log.getInstance('API', true);
+    this.$log.debug('constructor');
 
-        this.Restangular = Restangular;
-        this.heros = this.Restangular.all('heros');
-    }
+    this.Restangular = Restangular;
+    this.heros = this.Restangular.all('heros');
+  }
 
-    /**
-     * Bootstrap Process
-     */
-    getHeros() {
-        return this.heros.getList();
-    }
+  /**
+   * Bootstrap Process
+   */
+  getHeros() {
+    return this.heros.getList();
+  }
 
 }
 
 APIService.$inject = ['$log', 'Restangular'];
 
 export default angular.module('app.common.services.API', [])
-.service('API', APIService);
+  .service('API', APIService);

@@ -15,8 +15,14 @@ module.exports = function(config) {
 
     // list of files / patterns to load in the browser
     files: [
-        { pattern: './node_modules/phantomjs-polyfill/bind-polyfill.js', watched: false },
-        { pattern: 'spec.bundle.js', watched: false }
+      {
+        pattern: './node_modules/phantomjs-polyfill/bind-polyfill.js',
+        watched: false
+      },
+      {
+        pattern: 'spec.bundle.js',
+        watched: false
+      }
     ],
 
     // list of files to exclude
@@ -25,27 +31,44 @@ module.exports = function(config) {
     // preprocess matching files before serving them to the browser
     // available preprocessors: https://npmjs.org/browse/keyword/karma-preprocessor
     preprocessors: {
-        'spec.bundle.js': ['webpack', 'sourcemap']
+      'spec.bundle.js': ['webpack', 'sourcemap']
     },
     webpack: {
-        devtool: 'inline-source-map',
-        module: {
-            preLoaders: [
-                { test: /^((?!spec).)*\.js$/, exclude: [/node_modules/], loader: 'isparta-instrumenter-loader'},
-            ],
-            loaders: [
-                { test: /\.js$/, exclude: [/node_modules/], loader: 'babel' },
-                { test: /\.html$/, loader: 'raw' },
-                { test: /\.scss$/, loader: 'style!css!sass' },
-                { test: /\.css$/, loader: 'style!css' }
-            ]
-        }
+      devtool: 'inline-source-map',
+      module: {
+        preLoaders: [
+          {
+            test: /^((?!spec).)*\.js$/,
+            exclude: [/node_modules/],
+            loader: 'isparta-instrumenter-loader'
+          },
+        ],
+        loaders: [
+          {
+            test: /\.js$/,
+            exclude: [/node_modules/],
+            loader: 'babel'
+          },
+          {
+            test: /\.html$/,
+            loader: 'raw'
+          },
+          {
+            test: /\.scss$/,
+            loader: 'style!css!sass'
+          },
+          {
+            test: /\.css$/,
+            loader: 'style!css'
+          }
+        ]
+      }
     },
     webpackMiddleware: {
-        stats: {
-          colors: true
-        },
-        quiet: false //reduce spam
+      stats: {
+        colors: true
+      },
+      quiet: false //reduce spam
     },
     webpackServer: {
       noInfo: false //please don't spam the console when running in karma!
@@ -57,7 +80,11 @@ module.exports = function(config) {
 
     coverageReporter: {
       reporters: [
-        { type: 'html', dir: 'dist/coverage', subdir: 'PhantomJS' },
+        {
+          type: 'html',
+          dir: 'dist/coverage',
+          subdir: 'PhantomJS'
+        },
       ]
     },
 
@@ -78,8 +105,8 @@ module.exports = function(config) {
     // available browser launchers: https://npmjs.org/browse/keyword/karma-launcher
     browsers: ['PhantomJS'],
 
-    // Continuous Integration mode
-    // if true, Karma captures browsers, runs the tests and exits
-    // singleRun: false
+  // Continuous Integration mode
+  // if true, Karma captures browsers, runs the tests and exits
+  // singleRun: false
   });
 };

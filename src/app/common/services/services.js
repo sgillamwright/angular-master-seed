@@ -6,8 +6,8 @@ import APIModule from './api/api';
 import DevToolsModule from './dev-tools/dev-tools';
 
 export default angular.module('app.common.services', [
-    AngularServicesModule.name,
-    AppServicesModule.name,
-    APIModule.name,
-    DevToolsModule.name
+  AngularServicesModule.name,
+  AppServicesModule.name,
+  APIModule.name,
+  DevToolsModule.name
 ]);
