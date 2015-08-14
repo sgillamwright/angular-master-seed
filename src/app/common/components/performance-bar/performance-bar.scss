@@ -1,34 +1,61 @@
 @import '../../variables';
 
 .performance-bar {
-    padding: 3px;
-    background: black;
-    color: white;
-    margin: 0 0 0 0;
+  padding: 3px;
+  background: black;
+  color: white;
+  margin: 0 0 0 0;
 
-    .watchers {
-        text-align: right;
-        width: 49%;
-        padding-right: 10px;
-        display: inline-block;
+
+  .spacer {
+    // width: 25%;
+  }
+
+  .info {
+    margin: 0 auto;
+  }
+
+  .watchers {
+      text-align: right;
+      // width: 49%;
+      padding-right: 10px;
+      display: inline-block;
+  }
+
+  .digest-cycle {
+      text-align: left;
+      // width: 49%;
+      padding-left: 10px;
+      display: inline-block;
+  }
+
+  .links {
+    text-align: left;
+    padding-left: 50px;
+    display: inline-block;
+
+    a,
+    a:link,
+    a:visited,
+    a:hover,
+    a:active {
+        color: #FFFFFF;
+        text-decoration: none;
+        padding-left: 15px;
     }
 
-    .safe {
-        color: green;
-    }
+  }
 
-    .caution {
-        color: yellow;
-    }
+  .safe {
+      color: green;
+  }
 
-    .alert {
-        color: red;
-    }
+  .caution {
+      color: yellow;
+  }
 
-    .digest-cycle {
-        text-align: left;
-        width: 49%;
-        padding-left: 10px;
-        display: inline-block;
-    }
+  .alert {
+      color: red;
+  }
+
 }

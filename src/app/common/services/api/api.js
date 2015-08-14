@@ -10,9 +10,6 @@ export class APIService {
    * @param {Restangular} Restangular - Restangular Service.
    */
   constructor($log, Restangular) {
-    /**
-     * @type {$log}
-     */
     this.$log = $log.getInstance('API', true);
     this.$log.debug('constructor');
 

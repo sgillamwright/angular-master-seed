@@ -6,17 +6,13 @@ import angular from 'angular';
 export class DevTools {
 
   /**
+   * @param {$log} $log - Angular Loggig Service.
    * @param {$location} $location - Angular Location Service.
    */
   constructor($log, $location) {
-    /**
-     * @type {$log}
-     */
     this.$log = $log.getInstance('DevTools', true);
     this.$log.debug('constructor');
-    /**
-     * @type {$location}
-     */
+
     this.$location = $location;
     this.performanceBarIsVisible = false;
 

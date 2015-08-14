@@ -6,9 +6,18 @@ import angular from 'angular';
 export class AngularServices {
 
   /**
-   * @param {$log} $log - LogUnobtrusiveExtension Service.
+   * @param {$log} $log - Angular logging Service.
+   * @param {$document} $document - Angular Document Service.
+   * @param {$filter} $filter - Angular Filter Service.
+   * @param {$http} $http - Angular HTTP Request Service.
+   * @param {$interval} $interval - Angular Interval Service.
+   * @param {$location} $location - Angular Location Service.
+   * @param {$q} $q - Angular Promise Implementation Service.
+   * @param {$rootScope} $rootScope - Angular RootScope Service.
+   * @param {$timeout} $timeout - Angular Timeout Service.
+   * @param {$window} $window - Angular Window Service.
    */
-  constructor($document, $filter, $http, $interval, $log, $location, $q, $rootScope, $timeout, $window) {
+  constructor($log, $document, $filter, $http, $interval, $location, $q, $rootScope, $timeout, $window) {
     this.$log = $log.getInstance('AngularServices', true);
     this.$log.debug('constructor');
 
@@ -35,7 +44,7 @@ export class AngularServices {
 
 }
 
-AngularServices.$inject = ['$document', '$filter', '$http', '$interval', '$log', '$location', '$q', '$rootScope', '$timeout', '$window'];
+AngularServices.$inject = ['$log', '$document', '$filter', '$http', '$interval', '$location', '$q', '$rootScope', '$timeout', '$window'];
 
 //export angular module for integration into app
 export default angular.module('app.common.services.AngularServices', [])

@@ -9,17 +9,16 @@ requireDir('./gulp/tasks', {
 });
 
 //generate release dry run build - run release bundles locally for testing
-gulp.task('release-dryrun', function(done) {
-  runSequence('fresh-build', 'bundle-release', 'copy-html-release', 'copy-assets', 'docs', 'mockdb', 'browser-sync', 'karma', 'protractor', 'stop', done);
+gulp.task('release:dryrun', function(done) {
+  runSequence('build:fresh', 'build:release', 'copy:release', 'copy:assets', 'docs', 'db:mock', 'browserSync', 'test', 'e2e', 'stop', done);
 });
 
 //generate release build - command to run on servers
 gulp.task('release', function(done) {
-  runSequence('fresh-build', 'bundle-release', 'copy-html-release', 'copy-assets', done);
+  runSequence('build:fresh', 'build:release', 'copy:release', 'copy:assets', done);
 });
-
 
 //generate development environemnt - live reload and file watching
 gulp.task('default', function(done) {
-  runSequence('fresh-build', 'bundle-dev', 'copy-html-dev', 'copy-assets', 'mockdb', 'browser-sync', 'watch', done);
+  runSequence('build:fresh', 'build:dev', 'copy:dev', 'copy:assets', 'docs', 'db:mock', 'browserSync', 'watch', 'test', done);
 });

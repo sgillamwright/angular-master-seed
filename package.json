@@ -81,7 +81,7 @@
   "scripts": {
     "start": "gulp",
     "test": "gulp test",
-    "lint": "gulp eslint"
+    "lint": "gulp js:lint"
   },
   "pre-commit": [
     "lint",
@@ -90,6 +90,6 @@
   "keywords": [
     "angular",
     "webpack",
-    "es6"
+    "es2015"
   ]
 }
