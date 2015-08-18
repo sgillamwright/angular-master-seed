@@ -213,3 +213,4 @@ The [NG6-Starter Repo](https://github.com/angular-class/NG6-starter) is where I 
 * Keeping checking in on JSDOC project to see how ES2015 support is.  Would prefer to be using this over ESDOC as its more robust.
 * Setup csslint to use only a bundle of app css without vendor css.
 * clean up gulp.config.js.
+* Investigate https://github.com/kensho/ng-describe for tests.
