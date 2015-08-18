@@ -207,6 +207,8 @@ Example:
 ##Inspiration & Thanks
 The [NG6-Starter Repo](https://github.com/angular-class/NG6-starter) is where I originally got my inspiration for the component style approach of this repo.  If your looking for a much lighter build tool setup I highly recommend you take a look.
 
+Avenger Icons came from http://naldzgraphics.net/freebies/free-hero-icons/
+
 ---
 ##TODO
 * Investigate using ES2015 to write gulpfile + tasks.
