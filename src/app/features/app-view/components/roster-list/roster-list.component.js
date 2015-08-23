@@ -1,5 +1,5 @@
-import template from './<%= name %>.html';
-import controller from './<%= name %>.controller';
+import template from './roster-list.html';
+import controller from './roster-list.controller';
 
 /**
  * Component / Directive Definition Object

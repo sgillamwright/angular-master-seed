@@ -1,40 +1,51 @@
-import app from '../../../app';
-import <%= upperCaseName %>Controller from './<%= name %>.controller';
-import <%= upperCaseName %>Component from './<%= name %>.component';
-import <%= upperCaseName %>Template from './<%= name %>.html';
+import app from '../../../../app';
+import HeroFormController from './hero-form.controller';
+import HeroFormComponent from './hero-form.component';
+import HeroFormTemplate from './hero-form.html';
 
-describe('Component::<%= upperCaseName %>', ()=>{
+describe('Component::HeroForm', ()=>{
     let $controller;
 
     //load up the app
     beforeEach(window.module('app'));
 
     //test dependency injection
-    beforeEach(inject((_$log_)=>{
-        $controller = new <%= upperCaseName %>Controller(_$log_);
+    beforeEach(inject((_AngularServices_, _AppServices_)=>{
+        $controller = new HeroFormController(_AngularServices_, _AppServices_);
     }));
 
     //controller tests
     describe('Controller', ()=>{
         //di checks
         it('should have a $log service', ()=>{
-            expect($controller['$log']).toBeDefined();
+            expect($controller.$log).toBeDefined();
         });
 
+        it('should contain an array of 1 or more origins', ()=> {
+          expect($controller.origins).toBeDefined;
+          expect($controller.origins).toBeArray();
+          expect($controller.origins.length).toBeGreaterThan(0);
+        });
+
+        it('should contain an array of 1 or more powers', ()=> {
+          expect($controller.powers).toBeDefined;
+          expect($controller.powers).toBeArray();
+          expect($controller.powers.length).toBeGreaterThan(0);
+        });
     });
 
     //Component / Directive Definition Object Tests
     describe('Component', ()=>{
-        let component = <%= upperCaseName %>Component();
+        let component = HeroFormComponent();
 
         //component controller is rigged properly
         it('should use the correct controller', ()=>{
-            expect(component.controller).toEqual(<%= upperCaseName %>Controller);
+            expect(component.controller).toEqual(HeroFormController);
         });
 
         //component template is rigged properly
         it('should use the correct template',()=>{
-            expect(component.template).toEqual(<%= upperCaseName %>Template);
+            expect(component.template).toEqual(HeroFormTemplate);
         });
 
         //component is set to be an element tag component

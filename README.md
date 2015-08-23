@@ -216,3 +216,4 @@ Avenger Icons came from http://naldzgraphics.net/freebies/free-hero-icons/
 * Setup csslint to use only a bundle of app css without vendor css.
 * clean up gulp.config.js.
 * Investigate https://github.com/kensho/ng-describe for tests.
+* Setup DI defaults to be different from common vs feature generated items ($log vs AppServices, etc)

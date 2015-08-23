@@ -1,5 +1,8 @@
 import angular from 'angular';
 
+//utility library
+import lodash from 'lodash';
+
 /**
  * Utility to combine all the common services of the app into a single DI point to manage complex DI chains in features & components.
  */
@@ -14,6 +17,8 @@ export class AppServices {
     this.$log = $log.getInstance('AppServices', true);
     this.$log.debug('constructor');
 
+    //include lodash as a main app service
+    this.lodash = lodash;
     this.DevTools = DevTools;
     this.API = API;
   }

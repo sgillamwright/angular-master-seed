@@ -1,7 +1,7 @@
 export default class <%= upperCaseName %>Controller {
 	constructor($log){
 		this.$log = $log.getInstance('<%= upperCaseName %>Controller', true);
-        this.$log.debug("constructor");
+    this.$log.debug("constructor");
 	}
 }
 
