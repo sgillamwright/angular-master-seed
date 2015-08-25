@@ -20,6 +20,10 @@ describe('Component::RosterList', ()=>{
             expect($controller.$log).toBeDefined();
         });
 
+        it('should use the RosterService', ()=> {
+          expect($controller.RosterService).toBeDefined();
+        });
+
     });
 
     //Component / Directive Definition Object Tests

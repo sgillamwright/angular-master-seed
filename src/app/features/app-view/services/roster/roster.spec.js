@@ -28,7 +28,6 @@ describe('Service::RosterService', () => {
 
     it('should load data from API.getHeros()', () => {
 
-
       //arrange
       let mockData = [
         {
