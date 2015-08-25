@@ -17,11 +17,12 @@ export class APIService {
     this.heros = this.Restangular.all('heros');
   }
 
-  /**
-   * Bootstrap Process
-   */
   getHeros() {
     return this.heros.getList();
+  }
+
+  postHero(hero) {
+    return this.heros.post(hero);
   }
 
 }

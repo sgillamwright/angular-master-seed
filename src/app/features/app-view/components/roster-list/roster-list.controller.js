@@ -1,20 +1,11 @@
 export default class RosterListController {
-  constructor(AngularServices, AppServices) {
+  constructor(AngularServices, AppServices, RosterService) {
     this.$log = AngularServices.getLogInstance('RosterListController', true);
     this.$log.debug('constructor');
 
-    this.API = AppServices.API;
-    this.heros = [];
+    this.RosterService = RosterService;
     this.onlyShowHerosWithSuperPowers = false;
   }
-
-  loadData() {
-    this.API.getHeros().then(heros => {
-      this.$log.debug('loadData', heros);
-      this.heros = heros;
-    });
-  }
-
 }
 
-RosterListController.$inject = ['AngularServices', 'AppServices'];
+RosterListController.$inject = ['AngularServices', 'AppServices', 'RosterService'];
