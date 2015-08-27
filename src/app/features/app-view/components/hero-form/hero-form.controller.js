@@ -7,11 +7,14 @@ export default class HeroFormController {
     this.RosterService = RosterService;
     this.$mdToast = $mdToast;
 
+    this.form = {};
+
     //form data model
     this.data = {
         name: "",
         power: "",
-        origin: ""
+        origin: "",
+        weakness: ""
     };
 
     //origins radio choices data
@@ -33,9 +36,25 @@ export default class HeroFormController {
       ''
     ];
 
+    this.weaknesses = [
+      {
+        id: '1', name: 'Afraid of Fire'
+      },
+      {
+        id: '2', name: 'Being Cold'
+      },
+      {
+        id: '3', name: 'Acid Blood'
+      },
+      {
+        id: '4', name: 'Bullets & Sharp Objects'
+      }
+    ];
+
 	}
 
   submit() {
+    this.$log.debug(this.data);
 
     let hero = {
       "name": this.data.name

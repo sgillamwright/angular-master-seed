@@ -14,7 +14,7 @@
                   </div>
               </md-input-container>
           </div>
-          <div flex layout="column">
+          <div flex>
               <md-input-container md-is-error="vm.form.power.$invalid">
                   <label>Power</label>
                   <md-select name="power" id="power" ng-model="vm.data.power" ng-required="true">
@@ -34,6 +34,16 @@
                       <div ng-message="required">Origin is required.</div>
                   </div>
               </md-input-container>
+          </div>
+          <div flex>
+            <suggestion-input
+              suggest-label="Weakness"
+              suggest-messages="vm.form.weakness.$error"
+              suggest-input-name="weakness"
+              suggest-model="vm.data.weakness"
+              suggest-data="vm.weaknesses"
+              suggest-property="name"
+            </suggestion-input>
           </div>
       </div>
       <md-button type="button" ng-click="vm.reset()">RESET</md-button>
