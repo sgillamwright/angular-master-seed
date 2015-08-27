@@ -93,7 +93,8 @@ export default class HeroFormController {
       this.data = {
           name: "",
           power: "",
-          origin: ""
+          origin: "",
+          weakness: ""
       };
   }
 

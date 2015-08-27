@@ -35,18 +35,6 @@
       "name": "Hawkeye",
       "icon": "assets/Avengers-Hawkeye-icon.png",
       "hasSuperPowers": false
-    },
-    {
-      "name": "tests",
-      "hasSuperPower": false,
-      "icon": "assets/Avengers-emblem.png",
-      "id": 7
-    },
-    {
-      "name": "htuyoy",
-      "hasSuperPower": false,
-      "icon": "assets/Avengers-emblem.png",
-      "id": 8
     }
   ]
 }
