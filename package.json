@@ -40,12 +40,11 @@
     "fs-walk": "0.0.1",
     "gulp": "^3.8.11",
     "gulp-angular-protractor": "0.0.2",
-    "gulp-csslint": "^0.1.5",
     "gulp-eslint": "^0.14.0",
     "gulp-exit": "0.0.2",
     "gulp-karma": "0.0.4",
-    "gulp-purifycss": "^0.2.0",
     "gulp-rename": "^1.2.2",
+    "gulp-sass-lint": "^1.0.1",
     "gulp-shell": "^0.4.2",
     "gulp-template": "^3.0.0",
     "isparta-instrumenter-loader": "^0.2.1",
@@ -82,10 +81,12 @@
   "scripts": {
     "start": "gulp",
     "test": "gulp test",
-    "lint": "gulp js:lint"
+    "js:lint": "gulp js:lint",
+    "sass:lint": "gulp sass:lint"
   },
   "pre-commit": [
-    "lint",
+    "js:lint",
+    "sass:lint",
     "test"
   ],
   "keywords": [

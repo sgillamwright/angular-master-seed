@@ -5,8 +5,7 @@ var del = require('del');
 var exec = require('child_process').exec;
 var exit = require('gulp-exit');
 var eslint = require('gulp-eslint');
-var csslint = require('gulp-csslint');
-var purify = require('gulp-purifycss');
+var sassLint = require('gulp-sass-lint');
 
 //clear terminal and timestamp output for easier scanning
 gulp.task('timestamp', function(cb) {
@@ -50,16 +49,9 @@ gulp.task('js:lint', function() {
     .pipe(eslint.failOnError());
 });
 
-//csslint on final css bundle
-gulp.task('css:lint', function() {
-  gulp.src('./dist/app.css')
-    .pipe(csslint())
-    .pipe(csslint.reporter());
-});
-
-//remove unused css from final css bundle
-gulp.task('css:purify', function() {
-  return gulp.src('./dist/app.css')
-    .pipe(purify(['./dist/*.js', './dist/*.html']))
-    .pipe(gulp.dest('./dist'));
+gulp.task('sass:lint', function () {
+  gulp.src(config.files.app.scss)
+    .pipe(sassLint())
+    .pipe(sassLint.format())
+    .pipe(sassLint.failOnError())
 });
