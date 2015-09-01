@@ -78,8 +78,7 @@ Features by their nature are more complex and may contain any number of feature 
 
 ####Code Quality Tools
 * [ESLint](http://eslint.org/) - eslint webpack loader to help with code quality
-* [CSSLint](https://github.com/CSSLint/csslint/) - perform css audit on final css bundle
-* [Purify CSS](https://github.com/purifycss/purifycss/) - remove unused css from css build file
+* [SassLint](https://github.com/sasstools/sass-lint) - linter for sass/scss files
 
 ####Documentation Tools
 * [SassDoc](http://sassdoc.com/) - Generate documents from application styles.
@@ -213,7 +212,6 @@ Avenger Icons came from http://naldzgraphics.net/freebies/free-hero-icons/
 ##TODO
 * Investigate using ES2015 to write gulpfile + tasks.
 * Keeping checking in on JSDOC project to see how ES2015 support is.  Would prefer to be using this over ESDOC as its more robust.
-* Setup csslint to use only a bundle of app css without vendor css.
 * clean up gulp.config.js.
 * Investigate https://github.com/kensho/ng-describe for tests.
 * Setup DI defaults to be different from common vs feature generated items ($log vs AppServices, etc)
