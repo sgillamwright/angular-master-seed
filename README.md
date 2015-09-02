@@ -17,7 +17,7 @@ To assist with making the project flexible I have adopted a component based stra
 This strategy consists of the app being broken down into small components with a focus on reusability.  This strategy keeps code isolated and is easier to maintain and test.  These Components contain their own Controllers, Directives, Services, CSS, JS, HTML templates and tests living together in the file structure.  This allows for maximum flexibility with transitional Angular 1.x components to Angular 2.0 in the future.
 
 ####My Angular 1.x Best Practices
-* Keep controllers are light as possible.
+* Keep controllers as light as possible.
 They should only deal with a views UI logic and data flow from the services.
 
 * Services should contain all of your business logic.
