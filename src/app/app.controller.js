@@ -1,4 +1,7 @@
-export default class AppController {
+/**
+ * AppController is the controller for the main application component.
+ */
+ export default class AppController {
   constructor(AngularServices, AppServices) {
     this.$log = AngularServices.getLogInstance('AppController', true);
     this.$log.debug('constructor');

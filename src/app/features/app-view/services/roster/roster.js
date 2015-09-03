@@ -1,7 +1,7 @@
 import angular from 'angular';
 
 /**
- * Describe the intention of the service here
+ * RosterService manages the business logic for the hero roster list.
  */
 export class RosterService {
 
@@ -34,5 +34,5 @@ export class RosterService {
 
 RosterService.$inject = ['AngularServices', 'AppServices'];
 
-export default angular.module('app.app-view.services.rosterservice', [])
+export default angular.module('app.features.app-view.services.rosterservice', [])
 .service('RosterService', RosterService);

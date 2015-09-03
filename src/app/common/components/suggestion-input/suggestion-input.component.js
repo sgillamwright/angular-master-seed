@@ -13,7 +13,6 @@ export default () => {
     restrict: 'E',
     controllerAs: 'vm',
     bindToController: true,
-    transclude: true,
     scope: {
       suggestInputName: '@',  // <input> name attribute for form references
       suggestLabel: '@',      // value for label of <input>

@@ -9,17 +9,21 @@ var template = require('gulp-template');
 //generate a new common component boilerplate inside the app
 gulp.task('generator', function() {
   var type = yargs.type;
+
   var name = yargs.name;
-  var parent = yargs.parent;
   var camelCaseName = S(name).camelize().s;
   var upperCaseName = camelCaseName.charAt(0).toUpperCase() + camelCaseName.slice(1);
   var lowerCaseName = camelCaseName.charAt(0).toLowerCase() + camelCaseName.slice(1);
+
+  var parent = yargs.parent;
 
   var targetPath = "";
   var templatePath = "";
   var scssCommonPath = "";
   var dependencyInjections = "";
   var ctrlConstructorParams = "";
+  var angularModuleName = "";
+
   switch (type.toLowerCase()) {
     case "common:component":
       targetPath = path.join(config.src.components, name);
@@ -27,16 +31,19 @@ gulp.task('generator', function() {
       scssCommonPath = "../../variables";
       ctrlConstructorParams = "$log";
       dependencyInjections = "'$log'";
+      angularModuleName = "app.common.components." + name;
       break;
     case "common:filter":
       targetPath = path.join(config.src.filters, name);
       templatePath = config.generators.filter.templates;
+      angularModuleName = "app.common.filters." + upperCaseName + "Filter";
       break;
     case "common:service":
       targetPath = path.join(config.src.services, name);
       templatePath = config.generators.service.templates;
       ctrlConstructorParams = "$log";
       dependencyInjections = "'$log'";
+      angularModuleName = "app.common.services." + upperCaseName;
       break;
     case "feature":
       targetPath = path.join(config.src.features, name);
@@ -44,6 +51,7 @@ gulp.task('generator', function() {
       scssCommonPath = "../../common/variables";
       ctrlConstructorParams = "AngularServices, AppServices";
       dependencyInjections = "'AngularServices', 'AppServices'";
+      angularModuleName = "app.features." + name;
       break;
     case "feature:component":
       targetPath = path.join(config.src.features, parent, 'components', name);
@@ -51,12 +59,14 @@ gulp.task('generator', function() {
       scssCommonPath = "../../../../common/variables";
       ctrlConstructorParams = "AngularServices, AppServices";
       dependencyInjections = "'AngularServices', 'AppServices'";
+      angularModuleName = "app.features." + parent + ".components." + name;
       break;
     case "feature:service":
       targetPath = path.join(config.src.features, parent, 'services', name);
       templatePath = config.generators.service.templates;
       ctrlConstructorParams = "AngularServices, AppServices";
       dependencyInjections = "'AngularServices', 'AppServices'";
+      angularModuleName = "app.features." + parent + ".services." + name;
       break;
     case "feature:view":
       targetPath = path.join(config.src.features, parent, 'views', name);
@@ -64,6 +74,7 @@ gulp.task('generator', function() {
       scssCommonPath = "../../../../common/variables";
       ctrlConstructorParams = "AngularServices, AppServices";
       dependencyInjections = "'AngularServices', 'AppServices'";
+      angularModuleName = "app.features." + parent + ".views." + name;
       break;
     default:
       console.log("Unknown generator type!  Aborted!");
@@ -79,7 +90,8 @@ gulp.task('generator', function() {
       lowerCaseName: lowerCaseName,
       scssCommonPath: scssCommonPath,
       ctrlConstructorParams: ctrlConstructorParams,
-      dependencyInjections: dependencyInjections
+      dependencyInjections: dependencyInjections,
+      angularModuleName: angularModuleName
     }))
     .pipe(rename(function(path) {
       path.basename = path.basename.replace('temp', name);

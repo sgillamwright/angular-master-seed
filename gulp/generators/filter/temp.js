@@ -1,5 +1,8 @@
 import angular from 'angular';
 
+/**
+ * <%= upperCaseName %>Filter does what?.
+ */
 export function <%= upperCaseName %>Filter() {
     return (items)=> {
         return items.filter((item)=> {
@@ -9,5 +12,5 @@ export function <%= upperCaseName %>Filter() {
     };
 };
 
-export default angular.module('<%= upperCaseName %>Filter', [])
+export default angular.module('<%= angularModuleName %>', [])
 .filter('<%= camelCaseName %>', <%= upperCaseName %>Filter);

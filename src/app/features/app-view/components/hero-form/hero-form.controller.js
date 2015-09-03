@@ -1,4 +1,14 @@
-export default class HeroFormController {
+/**
+ * HeroFormController is the controller for the Hero Form component of app-view.
+ */
+ export default class HeroFormController {
+
+  /**
+   * @param {AngularServices} AngularServices - Angular Common Services Helper
+   * @param {AppServices} AppServices - App Common Services Helper
+   * @param {RosterService} RosterService - Roster Service
+   * @param {$mdToast} $mdToast - Angular Material Toast Service
+   */
   constructor(AngularServices, AppServices, RosterService, $mdToast) {
     this.$log = AngularServices.getLogInstance('HeroFormController', true);
     this.$log.debug("constructor");

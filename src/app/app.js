@@ -12,14 +12,12 @@ import Features from './features/features';
 //app bootstrap
 import AppComponent from './app.component';
 import AppConfig from './app.config';
-
-//app css
-import Styles from './app.scss';
+import './app.scss';
 
 angular.module('app', [
   Vendor.name,
   Common.name,
   Features.name,
 ])
-  .config(AppConfig)
-  .directive('app', AppComponent);
+.config(AppConfig)
+.directive('app', AppComponent);

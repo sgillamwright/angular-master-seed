@@ -61,5 +61,5 @@ export class DevTools {
 
 DevTools.$inject = ['$log', '$location'];
 
-export default angular.module('app.common.services.devtools', [])
+export default angular.module('app.common.services.DevTools', [])
   .service('DevTools', DevTools);

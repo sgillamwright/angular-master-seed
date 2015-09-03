@@ -81,11 +81,11 @@ Features by their nature are more complex and may contain any number of feature 
 * [SassLint](https://github.com/sasstools/sass-lint) - linter for sass/scss files
 
 ####Documentation Tools
-* [SassDoc](http://sassdoc.com/) - Generate documents from application styles.
 * [ESDoc](https://esdoc.org/) - Generate documents from javascript code.
+* [SassDoc](http://sassdoc.com/) - Generate documents from application styles.
 
 ####GIT Pre-Commit Check
-I use [pre-commit](https://github.com/observing/pre-commit) to run the eslint and test gulp tasks before each commit is processed.  The commit fails if any issues arise from either task. This helps prevent breaking code from being added to the repo.  You can skip this check by included '--no-verify' in your commit command.
+I use [pre-commit](https://github.com/observing/pre-commit) to run the js:lint, sass:lint and test gulp tasks before each commit is processed.  The commit fails if any issues arise from either task. This helps prevent breaking code from being added to the repo.  You can skip this check by included '--no-verify' in your commit command.
 
 ---
 ##Gulp Tasks
@@ -105,8 +105,7 @@ I use [pre-commit](https://github.com/observing/pre-commit) to run the eslint an
 
 ####Code Quality Tasks
 * gulp js:lint - Scan ./src js files for issues.
-* gulp css:lint - Scan ./dist css for issues.
-* gulp css:purify - Run purify-css against ./dist content.
+* gulp sass:lint - Scan ./src sass files for issues.
 
 ###Documentation Tasks
 * gulp docs:js - Generates esdoc website into the ./dist/docs.
@@ -120,7 +119,8 @@ For more information on the gulp tasks checkout ./gulp/tasks.
 ##Generators
 To assist with development I have created a series of gulp tasks to generate the boilerplates for components, services and filters in various locations inside the app code.  Please note that you need to manually include the generated codes module into the app after its been generated to use it.
 
-#####Common component
+#####Common component - /src/app/common/components/<component-name>
+
 Syntax:
 ```
 gulp generator --type common:component --name component-name
@@ -130,7 +130,7 @@ Example:
  gulp generator --type common:component --name performance-bar
 ```
 ---
-#####Common service
+#####Common service - /src/app/common/services/<service-name>
 Syntax:
 ```
 gulp generator --type common:service --name service-name
@@ -140,7 +140,7 @@ Example:
  gulp generator --type common:service --name api
 ```
 ---
-#####Common filter
+#####Common filter - /src/app/common/filters/<filter-name>
 Syntax:
 ```
 gulp generator --type common:filter --name filter-name
@@ -150,7 +150,7 @@ Example:
  gulp generator --type common:filter --name superpowers
 ```
 ---
-#####Feature
+#####Feature - /src/app/features/<feature-name>
 Syntax:
 ```
 gulp generator --type feature --name feature-name
@@ -161,7 +161,7 @@ Example:
 ```
 ---
 
-#####Feature specific component
+#####Feature component - /src/app/features/<parent-feature-folder>/components/<component-name>
 Syntax:
 ```
 gulp generator --type feature:component --name component-name --parent parent-feature-folder
@@ -171,7 +171,7 @@ Example:
  gulp generator --type feature:component --name hero-block --parent app-view
 ```
 ---
-#####Feature specific service
+#####Feature service - /src/app/features/<parent-feature-folder>/services/<service-name>
 Syntax:
 ```
 gulp generator --type feature:service --name service-name --parent parent-feature-folder
@@ -181,7 +181,7 @@ Example:
  gulp generator --type feature:service --name hero-service --parent app-view
 ```
 ---
-#####Feature specific view
+#####Feature specific view - /src/app/features/<parent-feature-folder>/views/<view-name>
 Syntax:
 ```
 gulp generator --type feature:view --name view-name --parent parent-feature-folder
@@ -211,6 +211,5 @@ Avenger Icons came from http://naldzgraphics.net/freebies/free-hero-icons/
 ---
 ##TODO
 * Investigate using ES2015 to write gulpfile + tasks.
-* Keeping checking in on JSDOC project to see how ES2015 support is.  Would prefer to be using this over ESDOC as its more robust.
 * clean up gulp.config.js.
 * Investigate https://github.com/kensho/ng-describe for tests.

@@ -2,6 +2,10 @@
 import lodash from 'lodash';
 
 export default class SuggestionInputController {
+
+  /**
+   * @param {$log} $log - Angular Loggig Service.
+   */
 	constructor($log){
 		this.$log = $log.getInstance('SuggestionInputController', true);
     this.$log.debug("constructor");
@@ -10,6 +14,10 @@ export default class SuggestionInputController {
     this.searchText = angular.copy(this.suggestModel);
 	}
 
+  /**
+   * Returns filtered list of unique results from the data source
+   * @param {string} query - value to filter data source by
+   */
   querySearch (query) {
       let results = query ? this.suggestData.filter( this.createFilterFor(query) ) : this.suggestData;
       let uniqueResults = this._.uniq(results, this.suggestProperty);

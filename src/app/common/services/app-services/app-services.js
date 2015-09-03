@@ -21,6 +21,13 @@ export class AppServices {
     this.lodash = lodash;
     this.DevTools = DevTools;
     this.API = API;
+
+    //used by developer bar
+    this.developerBarConfig = {
+      esdocPath: "docs/esdoc/identifiers.html",
+      sassdocPath: "docs/sassdoc/index.html",
+      coveragePath: "coverage/phantomjs/index.html"
+    }
   }
 
 }
@@ -28,5 +35,5 @@ export class AppServices {
 AppServices.$inject = ['$log', 'DevTools', 'API'];
 
 //export angular module for integration into app
-export default angular.module('app.common.services.appservices', [])
+export default angular.module('app.common.services.AppServices', [])
   .service('AppServices', AppServices);

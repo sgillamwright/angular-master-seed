@@ -12,8 +12,7 @@ export function SuperpowersFilter() {
       return items;
     }
   };
-}
-;
+};
 
-export default angular.module('SuperpowersFilter', [])
-  .filter('superpowers', SuperpowersFilter);
+export default angular.module('app.common.filters.SuperpowersFilter', [])
+.filter('superpowers', SuperpowersFilter);
