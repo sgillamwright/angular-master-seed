@@ -10,6 +10,16 @@ describe('Service::DevTools', () => {
     DevTools = _DevTools_;
   }));
 
+  describe('constructor()', () => {
+    it('should have a $log service ', () => {
+      expect(DevTools.$log).toBeDefined();
+    });
+
+    it('should have a $location service ', () => {
+      expect(DevTools.$location).toBeDefined();
+    });
+  });
+
   describe('isDevelopmentEnvironment()', () => {
     it('should be defined', () => {
       expect(DevTools.isDevelopmentEnvironment).toBeDefined();

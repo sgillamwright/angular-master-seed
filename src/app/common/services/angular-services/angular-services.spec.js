@@ -7,7 +7,7 @@ describe('Service::AngularServices', () => {
     AngularServices = _AngularServices_;
   }));
 
-  describe('has required angular services', () => {
+  describe('construtor()', () => {
     it('should have the $document service ', () => {
       expect(AngularServices.$document).toBeDefined();
     });

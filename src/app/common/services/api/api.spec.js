@@ -15,7 +15,7 @@ describe('Service::API', () => {
     $httpBackend.verifyNoOutstandingRequest();
   });
 
-  describe('has required services', () => {
+  describe('constructor()', () => {
     it('should have the $log service ', () => {
       expect(API.$log).toBeDefined();
     });

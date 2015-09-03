@@ -16,14 +16,6 @@ export class DevTools {
     this.$location = $location;
     this.performanceBarIsVisible = false;
 
-    //bootstrap the service as needed
-    this.init();
-  }
-
-  /**
-   * Bootstrap Process
-   */
-  init() {
     //show performance stats when able
     this.performanceBarIsVisible = this.togglePerformanceStats(this.$location.host(), true);
   }

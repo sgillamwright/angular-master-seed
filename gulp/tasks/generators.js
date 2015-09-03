@@ -21,6 +21,7 @@ gulp.task('generator', function() {
   var templatePath = "";
   var scssCommonPath = "";
   var dependencyInjections = "";
+  var specDependencyInjections = "";
   var constructorParams = "";
   var angularModuleName = "";
   var logger = "";
@@ -32,6 +33,7 @@ gulp.task('generator', function() {
       scssCommonPath = "../../variables";
       constructorParams = "$log";
       dependencyInjections = "'$log'";
+      specDependencyInjections = "_$log_";
       angularModuleName = "app.common.components." + name;
       logger = "$log.getInstance";
       break;
@@ -46,6 +48,7 @@ gulp.task('generator', function() {
       templatePath = config.generators.service.templates;
       constructorParams = "$log";
       dependencyInjections = "'$log'";
+      specDependencyInjections = "_$log_";
       angularModuleName = "app.common.services." + upperCaseName;
       logger = "$log.getInstance";
       break;
@@ -55,6 +58,7 @@ gulp.task('generator', function() {
       scssCommonPath = "../../common/variables";
       constructorParams = "AngularServices, AppServices";
       dependencyInjections = "'AngularServices', 'AppServices'";
+      specDependencyInjections = "_AngularServices_, _AppServices_";
       angularModuleName = "app.features." + name;
       logger = "AngularServices.getLogInstance";
       break;
@@ -64,6 +68,7 @@ gulp.task('generator', function() {
       scssCommonPath = "../../../../common/variables";
       constructorParams = "AngularServices, AppServices";
       dependencyInjections = "'AngularServices', 'AppServices'";
+      specDependencyInjections = "_AngularServices_, _AppServices_";
       angularModuleName = "app.features." + parent + ".components." + name;
       logger = "AngularServices.getLogInstance";
       break;
@@ -72,6 +77,7 @@ gulp.task('generator', function() {
       templatePath = config.generators.service.templates;
       constructorParams = "AngularServices, AppServices";
       dependencyInjections = "'AngularServices', 'AppServices'";
+      specDependencyInjections = "_AngularServices_, _AppServices_";
       angularModuleName = "app.features." + parent + ".services." + name;
       logger = "AngularServices.getLogInstance";
       break;
@@ -81,6 +87,7 @@ gulp.task('generator', function() {
       scssCommonPath = "../../../../common/variables";
       constructorParams = "AngularServices, AppServices";
       dependencyInjections = "'AngularServices', 'AppServices'";
+      specDependencyInjections = "_AngularServices_, _AppServices_";
       angularModuleName = "app.features." + parent + ".views." + name;
       logger = "AngularServices.getLogInstance";
       break;
@@ -99,7 +106,9 @@ gulp.task('generator', function() {
       scssCommonPath: scssCommonPath,
       constructorParams: constructorParams,
       dependencyInjections: dependencyInjections,
-      angularModuleName: angularModuleName
+      specDependencyInjections: specDependencyInjections,
+      angularModuleName: angularModuleName,
+      logger: logger
     }))
     .pipe(rename(function(path) {
       path.basename = path.basename.replace('temp', name);

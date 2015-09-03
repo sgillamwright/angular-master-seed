@@ -7,7 +7,11 @@ describe('Service::AppServices', () => {
     AppServices = _AppServices_;
   }));
 
-  describe('has required app services', () => {
+  describe('constructor()', () => {
+    it('should have a $log service ', () => {
+      expect(AppServices.$log).toBeDefined();
+    });
+
     it('should have the DevTools service ', () => {
       expect(AppServices.DevTools).toBeDefined();
     });

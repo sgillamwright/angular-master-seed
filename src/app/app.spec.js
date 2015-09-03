@@ -13,11 +13,11 @@ describe('Component::App', () => {
 
   describe('Controller', () => {
     it('should have access to AngularServices', () => {
-      expect($controller['AngularServices']).toBeDefined();
+      expect($controller.AngularServices).toBeDefined();
     });
 
     it('should have access to AppServices', () => {
-      expect($controller['AppServices']).toBeDefined();
+      expect($controller.AppServices).toBeDefined();
     });
 
   });

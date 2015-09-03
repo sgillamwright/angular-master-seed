@@ -15,7 +15,7 @@ describe('Component::AppView', () => {
   describe('Controller', () => {
 
     it('should have a $log service', () => {
-      expect($controller['$log']).toBeDefined();
+      expect($controller.$log).toBeDefined();
     });
 
   });

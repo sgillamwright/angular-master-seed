@@ -17,7 +17,7 @@ describe('Component::<%= upperCaseName %>', ()=>{
     describe('Controller', ()=>{
         //di checks
         it('should have a $log service', ()=>{
-            expect($controller.$log]).toBeDefined();
+            expect($controller.$log).toBeDefined();
         });
 
     });

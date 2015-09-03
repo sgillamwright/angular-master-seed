@@ -9,10 +9,10 @@ describe('Service::<%= upperCaseName %>', () => {
         <%= upperCaseName %> = _<%= upperCaseName %>_;
     }));
 
-    describe('myServiceMethod()', () => {
-        it('should be defined', () => {
-            expect(<%= upperCaseName %>.myServiceMethod).toBeDefined();
-        });
+    describe('constructor()', () => {
+      it('should have a $log service', ()=>{
+          expect(<%= upperCaseName %>.$log).toBeDefined();
+      });
     });
 
 });
