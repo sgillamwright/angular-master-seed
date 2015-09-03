@@ -4,6 +4,8 @@
 
 ##Overview
 
+##### To see a full working app example using this seed, check out the 'example-app' branch.
+
 #####NOTES:
 * I will avoid referencing 'directives' in the traditional Angular 1.x sense in favor of 'components' which is more inline with Angular 2.0 proposals.
 * When I refer to a 'view' it means a component which is built by combining other components.
