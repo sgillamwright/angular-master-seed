@@ -1,6 +1,5 @@
 import template from './loader-indicator.html';
 import controller from './loader-indicator.controller';
-import './loader-indicator.scss';
 
 /**
  * Component / Directive Definition Object

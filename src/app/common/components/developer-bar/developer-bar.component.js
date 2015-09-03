@@ -1,6 +1,5 @@
 import template from './developer-bar.html';
 import controller from './developer-bar.controller';
-import './developer-bar.scss';
 
 /**
  * Component / Directive Definition Object
