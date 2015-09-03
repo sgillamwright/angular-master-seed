@@ -1,4 +1,3 @@
-import app from '../../../../app';
 import HeroFormController from './hero-form.controller';
 import HeroFormComponent from './hero-form.component';
 import HeroFormTemplate from './hero-form.html';

@@ -1,4 +1,3 @@
-import app from '../../../../app';
 import RosterListController from './roster-list.controller';
 import RosterListComponent from './roster-list.component';
 import RosterListTemplate from './roster-list.html';

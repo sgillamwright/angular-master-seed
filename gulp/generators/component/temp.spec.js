@@ -1,4 +1,3 @@
-import app from '../../../app';
 import <%= upperCaseName %>Controller from './<%= name %>.controller';
 import <%= upperCaseName %>Component from './<%= name %>.component';
 import <%= upperCaseName %>Template from './<%= name %>.html';
@@ -18,7 +17,7 @@ describe('Component::<%= upperCaseName %>', ()=>{
     describe('Controller', ()=>{
         //di checks
         it('should have a $log service', ()=>{
-            expect($controller['$log']).toBeDefined();
+            expect($controller.$log]).toBeDefined();
         });
 
     });

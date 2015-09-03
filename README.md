@@ -214,5 +214,3 @@ Avenger Icons came from http://naldzgraphics.net/freebies/free-hero-icons/
 * Keeping checking in on JSDOC project to see how ES2015 support is.  Would prefer to be using this over ESDOC as its more robust.
 * clean up gulp.config.js.
 * Investigate https://github.com/kensho/ng-describe for tests.
-* Setup DI defaults to be different from common vs feature generated items ($log vs AppServices, etc)
-* Setup generators to apply proper paths to common styles, app in tests

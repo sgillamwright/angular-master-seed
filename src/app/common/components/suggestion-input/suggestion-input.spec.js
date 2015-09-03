@@ -1,9 +1,8 @@
-import app from '../../../app';
 import SuggestionInputController from './suggestion-input.controller';
 import SuggestionInputComponent from './suggestion-input.component';
 import SuggestionInputTemplate from './suggestion-input.html';
 
-xdescribe('Component::SuggestionInput', ()=>{
+describe('Component::SuggestionInput', ()=>{
     let $controller;
 
     //load up the app
@@ -18,7 +17,11 @@ xdescribe('Component::SuggestionInput', ()=>{
     describe('Controller', ()=>{
         //di checks
         it('should have a $log service', ()=>{
-            expect($controller['$log']).toBeDefined();
+            expect($controller.$log).toBeDefined();
+        });
+
+        it('should have a lodash service', ()=>{
+            expect($controller._).toBeDefined();
         });
 
     });

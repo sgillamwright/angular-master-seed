@@ -14,7 +14,7 @@ describe('Component::PerformanceBar', () => {
   describe('Controller', () => {
     //di example
     it('should have a $log', () => {
-      expect($controller['$log']).toBeDefined();
+      expect($controller.$log).toBeDefined();
     });
 
   });

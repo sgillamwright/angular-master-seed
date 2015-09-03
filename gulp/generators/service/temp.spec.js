@@ -1,5 +1,3 @@
-import app from '../../app';
-
 describe('Service::<%= upperCaseName %>', () => {
     let <%= upperCaseName %>;
 

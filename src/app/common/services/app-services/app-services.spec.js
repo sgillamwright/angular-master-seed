@@ -9,12 +9,17 @@ describe('Service::AppServices', () => {
 
   describe('has required app services', () => {
     it('should have the DevTools service ', () => {
-      expect(AppServices['DevTools']).toBeDefined();
+      expect(AppServices.DevTools).toBeDefined();
     });
 
     it('should have the API service ', () => {
-      expect(AppServices['API']).toBeDefined();
+      expect(AppServices.API).toBeDefined();
     });
+
+    it('should have the lodash service ', () => {
+      expect(AppServices.lodash).toBeDefined();
+    });
+
   });
 
 });

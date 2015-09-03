@@ -1,4 +1,3 @@
-import app from '../../../app';
 import DevToolsModule from './dev-tools';
 
 describe('Service::DevTools', () => {

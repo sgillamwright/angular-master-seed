@@ -9,43 +9,43 @@ describe('Service::AngularServices', () => {
 
   describe('has required angular services', () => {
     it('should have the $document service ', () => {
-      expect(AngularServices['$document']).toBeDefined();
+      expect(AngularServices.$document).toBeDefined();
     });
 
     it('should have the $filter service ', () => {
-      expect(AngularServices['$filter']).toBeDefined();
+      expect(AngularServices.$filter).toBeDefined();
     });
 
     it('should have the $http service ', () => {
-      expect(AngularServices['$http']).toBeDefined();
+      expect(AngularServices.$http).toBeDefined();
     });
 
     it('should have the $interval service ', () => {
-      expect(AngularServices['$interval']).toBeDefined();
+      expect(AngularServices.$interval).toBeDefined();
     });
 
     it('should have the $log service ', () => {
-      expect(AngularServices['$logger']).toBeDefined();
+      expect(AngularServices.$logger).toBeDefined();
     });
 
     it('should have the $location service ', () => {
-      expect(AngularServices['$location']).toBeDefined();
+      expect(AngularServices.$location).toBeDefined();
     });
 
     it('should have the $q service ', () => {
-      expect(AngularServices['$q']).toBeDefined();
+      expect(AngularServices.$q).toBeDefined();
     });
 
     it('should have the $rootScope service ', () => {
-      expect(AngularServices['$rootScope']).toBeDefined();
+      expect(AngularServices.$rootScope).toBeDefined();
     });
 
     it('should have the $timeout service ', () => {
-      expect(AngularServices['$timeout']).toBeDefined();
+      expect(AngularServices.$timeout).toBeDefined();
     });
 
     it('should have the $window service ', () => {
-      expect(AngularServices['$window']).toBeDefined();
+      expect(AngularServices.$window).toBeDefined();
     });
   });
 

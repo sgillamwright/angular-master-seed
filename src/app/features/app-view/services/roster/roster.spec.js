@@ -1,5 +1,3 @@
-import app from '../../../../app';
-
 describe('Service::RosterService', () => {
     let RosterService, deferred, rootScope;
 

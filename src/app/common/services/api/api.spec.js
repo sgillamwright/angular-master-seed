@@ -17,18 +17,18 @@ describe('Service::API', () => {
 
   describe('has required services', () => {
     it('should have the $log service ', () => {
-      expect(API['$log']).toBeDefined();
+      expect(API.$log).toBeDefined();
     });
 
     it('should have the Restangular service ', () => {
-      expect(API['Restangular']).toBeDefined();
+      expect(API.Restangular).toBeDefined();
     });
   });
 
   describe('heros', () => {
     it('should have a heros restangular obj', () => {
-      expect(API['heros']).toBeDefined();
-
+      expect(API.heros).toBeDefined();
+      expect(API.heros.getRestangularUrl).toBeDefined();
     });
   });
 

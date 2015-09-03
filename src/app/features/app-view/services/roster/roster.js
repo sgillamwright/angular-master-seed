@@ -23,10 +23,10 @@ export class RosterService {
     }
 
     addHero(hero) {
-      //set icon
+      //add default icon to new hero
       hero.icon = "assets/Avengers-emblem.png";
 
-      // submit code goes here
+      // submit
       return this.API.postHero(hero);
     }
 

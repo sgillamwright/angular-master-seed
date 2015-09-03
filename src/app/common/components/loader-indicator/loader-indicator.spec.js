@@ -1,4 +1,3 @@
-import app from '../../../app';
 import LoaderIndicatorController from './loader-indicator.controller';
 import LoaderIndicatorComponent from './loader-indicator.component';
 import LoaderIndicatorTemplate from './loader-indicator.html';
@@ -15,11 +14,11 @@ describe('Component::LoaderIndicator', ()=>{
     describe('Controller', ()=>{
         //di example
         it('should have a $log service', ()=>{
-            expect($controller['$log']).toBeDefined();
+            expect($controller.$log).toBeDefined();
         });
 
         it('should have a $rootScope service', ()=>{
-            expect($controller['$rootScope']).toBeDefined();
+            expect($controller.$rootScope).toBeDefined();
         });
 
     });
